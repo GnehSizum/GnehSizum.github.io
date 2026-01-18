@@ -1,0 +1,376 @@
+/* source/css/about.css */
+
+/* --- 基础容器 --- */
+.about-container {
+    max-width: 800px; /* 稍微宽一点以容纳照片墙 */
+    margin: 0 auto;
+    font-family: var(--font-serif);
+}
+
+/* --- 头部信息 --- */
+.about-header-split {
+    display: flex;
+    justify-content: space-between; /* 左右两端对齐 */
+    align-items: center;            /* 垂直居中 */
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    /* border-bottom: 1px solid #e0e0e0; */
+}
+
+/* 左侧区域 */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* 头像和文字的间距 */
+}
+
+.about-avatar {
+    width: 80px; height: 80px; /* 头像稍微改小一点，更精致 */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* 移除了原本的 margin-bottom */
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-name {
+    font-size: 24px;
+    color: var(--text-main);
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about-slogan {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: #999;
+    margin: 5px 0 0 0;
+}
+
+/* 右侧区域 */
+.header-right {
+    text-align: right; /* 文字靠右 */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 两行信息之间的间距 */
+}
+
+.info-row {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 靠右对齐 */
+    gap: 8px;
+}
+
+.info-icon {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.info-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* --- 移动端适配 --- */
+@media (max-width: 600px) {
+    .about-header-split {
+        flex-direction: column; /* 上下排列 */
+        align-items: center;    /* 居中对齐 */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .header-left {
+        flex-direction: column; /* 头像在名字上面 */
+        gap: 10px;
+    }
+    
+    .header-right {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .info-row {
+        justify-content: center;
+    }
+}
+
+/* --- 选项卡导航 (Tab Nav) --- */
+.about-tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s;
+    font-weight: 600;
+}
+
+.tab-btn:hover {
+    color: var(--accent);
+}
+
+.tab-btn.active {
+    color: var(--text-main);
+}
+
+/* 激活状态下的小横线动画 */
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -11px; /* 贴合边框 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+/* --- Tab 内容切换逻辑 --- */
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= Tab 1: 关于 ================= */
+/* .post-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+} */
+
+.skill-tags {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.skill-tags span {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 2px 12px;
+    font-size: 14px;
+    border-radius: 15px;
+    font-family: var(--font-sans);
+}
+
+/* --- 联系方式表格 (核心修改) --- */
+.contact-wrapper {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-contact-table {
+    border-collapse: collapse;
+    border: none;
+    font-family: var(--font-sans); /* 信息类数据建议用无衬线体 */
+    font-size: 16px;
+    color: #222;
+    margin: 0 auto; /* 表格自身居中 */
+}
+
+/* 针对所有单元格的通用设置 */
+.about-contact-table th,
+.about-contact-table td {
+    padding: 3px 12px;      /* 增加呼吸感 */
+    border: none;           /* 去除默认边框 */
+    font-weight: normal;    /* 强制去除粗体 */
+    vertical-align: middle;
+}
+
+/* 左边一列：文字靠右 */
+.about-contact-table tr > *:first-child {
+    text-align: right;
+    color: var(--text-main); /* 标签颜色淡一点 */
+    width: 45%;              /* 稍微控制下宽度比例，保证中轴线美观 */
+}
+
+/* 右边一列：文字靠左 */
+.about-contact-table tr > *:last-child {
+    text-align: left;
+    color: var(--text-main); /* 内容颜色深一点 */
+}
+
+.about-contact-table a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-bottom 0.3s;
+}
+
+.about-contact-table a:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* ================= Tab 2: 友链 (Grid Layout) ================= */
+.friends-grid {
+    display: grid;
+    /* 自适应列宽，最小 220px */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.friend-card {
+    display: flex;
+    align-items: center; /* 核心：垂直居中对齐 */
+    background: #fff;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 8px; /* 圆角矩形 */
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    height: 100%; /* 确保高度统一 */
+}
+
+.friend-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: var(--accent);
+}
+
+/* 头像容器：固定大小，且不被压缩 */
+.friend-avatar {
+    width: 50px; 
+    height: 50px;
+    flex-shrink: 0; /* 禁止压缩 */
+    margin-right: 15px; /* 图片与文字的间距 */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.friend-avatar img {
+    width: 100%; 
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f2f2f2;
+    display: block; /* 消除 img 底部的幽灵间距 */
+}
+
+.friend-info {
+    flex: 1;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 文字块内部也垂直居中 */
+}
+
+.friend-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 4px 0; /* 仅保留底部间距 */
+    line-height: 1.2;
+}
+
+.friend-desc {
+    font-size: 12px;
+    color: #999;
+    font-family: var(--font-sans);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* ================= Tab 3: 照片墙 (Masonry Layout) ================= */
+.gallery-masonry {
+    column-count: 2; /* 默认2列 */
+    column-gap: 20px;
+}
+
+.photo-item {
+    break-inside: avoid; /* 防止图片被分割 */
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 10px 10px 15px 10px; /* 拍立得风格留白 */
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border-radius: 2px;
+    transition: transform 0.3s;
+}
+
+.photo-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 10;
+}
+
+.photo-item img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.photo-caption {
+    font-family: "Caveat", "Architects Daughter", var(--font-serif); /* 手写体风格 */
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin: 0;
+}
+
+@media (min-width: 768px) { /* 768px */
+    .gallery-masonry { column-count: 3; } /* 宽屏3列 */
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #ccc;
+    font-style: italic;
+}
+
+.paper-divider {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    margin: 30px auto;
+    width: 60px;
+}

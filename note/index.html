@@ -1,0 +1,296 @@
+<!-- layout/layout.ejs -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Note List | Mu Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div class="watermark-bg"></div>
+
+    
+
+    <div class="layout-container has-right-sidebar">
+        
+        <!-- === 1. 左侧区域 === -->
+        <div class="left-column">
+            <aside class="sidebar-card user-card collapsed" id="userSidebar">
+                <div class="card-toggle-btn" id="sidebarToggle" title="Toggle Info">
+                    <span class="toggle-arrow"></span>
+                </div>
+                <div class="sidebar-inner">
+                    
+                    <div class="author-area">
+                        <img class="avatar" src="/images/head.jpg" alt="avatar">
+                        <h3 class="author-name">GnehSizum</h3>
+                        <p class="author-desc">One today is worth two tomorrows.</p>
+                    </div>
+                    <nav class="sidebar-nav">
+                        
+                            
+                                <a href="/" class="nav-link">Home</a>
+                            
+                                <a href="/blog" class="nav-link">Blog</a>
+                            
+                                <a href="/note" class="nav-link">Note</a>
+                            
+                                <a href="/about" class="nav-link">About</a>
+                            
+                        
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- 左下侧边栏：Blog/Note 模式下显示目录/最近文章 -->
+            
+                <aside class="sidebar-card extra-card">
+                    <div class="extra-inner">
+                        
+                            <h4 class="extra-title">Directory</h4>
+                            <div class="category-tree">
+                                
+
+                                <!-- 输出渲染结果 -->
+                                <div class="note-tree-container">
+                                    <ul class="note-ul depth-0"><li class="note-folder"><span class="folder-label">vslam14</span><ul class="note-ul depth-1"><li class="note-file"><a href="/2026/01/02/note/vslam14/vslam_03/" class="note-link" title="第3讲 三维空间刚体运动">第3讲 三维空间刚体运动</a></li></ul></li></ul>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </aside>
+            
+        </div>
+
+        <!-- === 2. 中间主内容区 === -->
+        <main class="paper-main">
+            
+            <!-- Header: 动态 Tabs 区域 -->
+            <header class="paper-header">
+                <!-- 左侧：选项卡 -->
+                <div class="header-tabs">
+                    
+                        <button class="header-tab-btn active" onclick="switchTab('tab-posts')">Articles</button>
+                        <button class="header-tab-btn" onclick="switchTab('tab-tags')">Tags</button>
+                    
+                    
+                </div>
+
+                <!-- 右侧：文字 (Mu Blog / Blog / Note / About) -->
+                <div class="header-right-title">
+                    Note
+                </div>
+            </header>
+
+            <div class="paper-content">
+                <!-- layout/page.ejs -->
+
+    
+    
+
+    <!-- Tab 1: Articles List -->
+    <div id="tab-posts" class="tab-content-item active">
+        <div class="post-list">
+            
+                
+                    
+                    <article class="post-item post-card" data-type="Note" data-tags="SLAM">
+                        <div class="card-header">
+                            <span class="card-date">2026.01.02</span>
+                        </div>
+                        <h2 class="post-title">
+                            <a href="/2026/01/02/note/vslam14/vslam_03/">第3讲 三维空间刚体运动</a>
+                        </h2>
+                        <div class="post-excerpt">
+                            <p>
+                                
+                                3.1 理论基础
+刚体运动由旋转（Rotation）和平移（Translation）组成。
+3.1.1 基础向量运算...
+                            </p>
+                        </div>
+                        
+                            <div class="card-tags">
+                                
+                                    <a href="/tags/SLAM/" class="card-tag-item"># SLAM</a>
+                                
+                            </div>
+                        
+                        <div class="post-action">
+                            <a class="read-more-btn" href="/2026/01/02/note/vslam14/vslam_03/">
+                                <span>Read more</span><span class="arrow">></span>
+                            </a>
+                        </div>
+                    </article>
+                
+            
+        </div>
+    </div>
+
+    <!-- Tab 2: Tags Filter -->
+    <div id="tab-tags" class="tab-content-item">
+        <div class="tags-cloud-panel">
+            <a href="javascript:;" onclick="filterByTag('all')" style="font-weight:bold; border-bottom:2px solid #333;">ALL</a>
+            
+                <a href="javascript:;" onclick="filterByTag('SLAM')">#SLAM</a>
+            
+        </div>
+        <p style="text-align:center; color:#999; font-size:12px;">点击标签筛选文章列表</p>
+    </div>
+
+
+            </div>
+
+            <footer class="paper-footer">
+                <p>&copy; 2026 GnehSizum. Powered by <span style="color:#b7b7b7;"><a href="https://hexo.io/" target="_blank">Hexo</a></span>.</p>
+                <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+            </footer>
+        </main>
+
+        <!-- === 3. 右侧区域 === -->
+        
+            <aside class="right-column">
+                
+                    <!-- Home / About / Blog List / Note List 页面：显示日历和统计 -->
+                    
+                    <!-- 卡片1: 日历 -->
+                    <div class="sidebar-card calendar-card">
+                        <div class="calendar-widget">
+                            <div class="calendar-header" id="calHeader"></div>
+                            <div class="calendar-body">
+                                <span class="cal-day-name">S</span><span class="cal-day-name">M</span><span class="cal-day-name">T</span>
+                                <span class="cal-day-name">W</span><span class="cal-day-name">T</span><span class="cal-day-name">F</span>
+                                <span class="cal-day-name">S</span>
+                                <!-- JS 将填充日期 -->
+                                <div id="calDays" style="display:contents"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片2: 站点统计 -->
+                    <div class="sidebar-card site-info-card">
+                        <div class="site-info-row">
+                            <span>Articles</span>
+                            <span class="site-info-val">5</span>
+                        </div>
+                        <div class="site-info-row">
+                            <span>Tags</span>
+                            <span class="site-info-val">3</span>
+                        </div>
+                        <div class="site-info-row">
+                            <span>Running</span>
+                            <span class="site-info-val" id="runDays">0 Days</span>
+                        </div>
+                    </div>
+                
+            </aside>
+        
+    </div>
+
+    <!-- 脚本库 -->
+    <script>
+        // 1. Sidebar Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleBtn = document.getElementById('sidebarToggle');
+            var sidebar = document.getElementById('userSidebar');
+            if(toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('collapsed');
+                    sidebar.classList.toggle('expanded');
+                });
+            }
+        });
+
+        // 2. Tab Switching Logic (Global)
+        window.switchTab = function(tabId) {
+            // 切换按钮状态
+            const buttons = document.querySelectorAll('.header-tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // 切换内容显示
+            const items = document.querySelectorAll('.tab-content-item');
+            items.forEach(item => item.classList.remove('active'));
+            
+            const target = document.getElementById(tabId);
+            if(target) target.classList.add('active');
+        }
+
+        // 3. Calendar & Run Days
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calendar
+            const date = new Date();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const calHeader = document.getElementById('calHeader');
+            const calDays = document.getElementById('calDays');
+            
+            if(calHeader && calDays) {
+                calHeader.innerText = monthNames[date.getMonth()] + " " + date.getFullYear();
+                
+                const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+                const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                
+                let html = '';
+                // Empty slots
+                for(let i=0; i<firstDay; i++) html += '<span class="cal-day empty"></span>';
+                // Days
+                for(let i=1; i<=daysInMonth; i++) {
+                    let className = 'cal-day';
+                    if(i === date.getDate()) className += ' today';
+                    html += `<span class="${className}">${i}</span>`;
+                }
+                calDays.innerHTML = html;
+            }
+
+            // Run Days (Change start date here)
+            const startDate = new Date("2022-11-11"); // 修改你的建站日期
+            const runDaysEl = document.getElementById('runDays');
+            if(runDaysEl) {
+                const diff = Math.floor((new Date() - startDate) / (1000 * 60 * 60 * 24));
+                runDaysEl.innerText = diff + " Days";
+            }
+        });
+
+        // 4. Tag Filtering Logic
+        window.filterByTag = function(tagName) {
+            // 切换到文章列表 Tab
+            const postsTabBtn = document.querySelector('button[onclick="switchTab(\'tab-posts\')"]');
+            if(postsTabBtn) postsTabBtn.click();
+
+            // 筛选文章
+            const cards = document.querySelectorAll('.post-card');
+            cards.forEach(card => {
+                const tags = card.getAttribute('data-tags') || '';
+                if(tagName === 'all' || tags.includes(tagName)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        tags: 'ams',
+        // 显式加载 boldsymbol 包，虽然 MathJax 3 默认通常包含，但为了保险
+        packages: {'[+]': ['boldsymbol']} 
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        // 忽略 hexo-filter-mathjax 保护起来的标签
+        ignoreHtmlClass: 'tex2jax_ignore'
+      },
+      loader: {
+        load: ['[tex]/boldsymbol'] 
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
