@@ -142,3 +142,16 @@
     border-bottom: 1px solid rgba(0,0,0,0.03);
 }
 .site-info-val { font-weight: 700; color: var(--accent); }
+
+@media (max-width: 768px) {
+    .toc-card {
+        max-height: 48vh;
+    }
+
+    .toc-link {
+        font-size: 12px;
+        line-height: 1.45;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}

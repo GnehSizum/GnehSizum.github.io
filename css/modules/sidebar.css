@@ -270,10 +270,55 @@
 
 /* 移动端适配 */
 @media (max-width: 768px) {
-    .sidebar-card { width: 100%; margin-bottom: 16px; }
+    .sidebar-card { width: 100%; margin-bottom: 12px; }
     .card-toggle-btn { display: none; } /* 移动端通常不建议折叠侧边栏以保持导航直观 */
     .user-card.collapsed .author-desc,
     .user-card.collapsed .sidebar-nav {
         display: block;
+    }
+
+    .user-card .sidebar-inner {
+        padding: 16px 12px;
+    }
+
+    .author-name {
+        font-size: 16px;
+    }
+
+    .author-desc {
+        padding: 0 4px;
+        margin-bottom: 12px;
+    }
+
+    .nav-link {
+        min-height: 38px;
+        line-height: 22px;
+        margin: 2px 4px;
+        padding: 8px 10px;
+    }
+
+    .extra-card {
+        padding: 14px 12px;
+    }
+
+    .note-link {
+        white-space: normal;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar {
+        width: 64px;
+        height: 64px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    .nav-link.active::before {
+        left: 4px;
+        width: 3px;
     }
 }

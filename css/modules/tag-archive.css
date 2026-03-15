@@ -92,6 +92,7 @@
     color: var(--text-main);
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 36px;
 }
 
 .filter-tag-chip:hover {
@@ -145,6 +146,7 @@
     gap: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 38px;
 }
 
 .archive-filter-chip span {
@@ -387,5 +389,98 @@
 
     .timeline-title {
         font-size: 13px;
+    }
+
+    .archive-filter-chip {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .win11-panel-title {
+        font-size: 20px;
+    }
+
+    .win11-panel-subtitle {
+        font-size: 11px;
+    }
+
+    .win11-tag-panel,
+    .win11-archive-panel,
+    .win11-tag-panel.compact {
+        padding: 12px;
+    }
+
+    .win11-tag-cloud {
+        gap: 6px;
+    }
+
+    .filter-tag-chip {
+        padding: 4px 8px;
+        gap: 6px;
+        min-height: 34px;
+    }
+
+    .chip-name,
+    .chip-count {
+        font-size: 11px;
+    }
+
+    .archive-filter-switch {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 5px;
+        gap: 4px;
+    }
+
+    .archive-filter-chip {
+        padding: 5px 8px;
+        font-size: 11px;
+        min-height: 34px;
+    }
+
+    .archive-filter-chip span {
+        min-width: 18px;
+        height: 18px;
+        line-height: 18px;
+        font-size: 10px;
+    }
+
+    .win11-archive-timeline {
+        padding-left: 12px;
+    }
+
+    .win11-archive-timeline::before {
+        left: 5px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px 0 10px;
+    }
+
+    .timeline-dot {
+        left: -8px;
+        top: 12px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .timeline-time {
+        width: auto;
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+    }
+
+    .timeline-clock {
+        margin-top: 0;
+    }
+
+    .timeline-card {
+        width: 100%;
+        padding: 10px 11px;
     }
 }

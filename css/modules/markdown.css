@@ -72,3 +72,63 @@
 .post-body figure.highlight:hover .copy-btn { opacity: 1; }
 .copy-btn:hover { background-color: #f3f4f6; border-color: rgba(27,31,35,0.15); text-decoration: none; }
 .copy-btn.copied { border-color: #2ea44f; color: #2ea44f; content: "Copied!"; }
+
+.post-body img,
+.post-body video,
+.post-body iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .post-body {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .post-body h1 { font-size: 1.7em; }
+    .post-body h2 { font-size: 1.35em; }
+    .post-body h3 { font-size: 1.16em; }
+
+    .post-body ul,
+    .post-body ol {
+        padding-left: 1.5em;
+    }
+
+    .post-body table th,
+    .post-body table td {
+        padding: 6px 9px;
+        font-size: 13px;
+    }
+
+    .post-body figure.highlight {
+        padding: 8px 10px;
+        border-radius: 5px;
+    }
+
+    .post-body figure.highlight pre {
+        padding-top: 22px;
+    }
+
+    .copy-btn {
+        opacity: 1;
+        padding: 2px 7px;
+        font-size: 11px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-body {
+        font-size: 14px;
+    }
+
+    .post-body code {
+        font-size: 82%;
+    }
+
+    .post-body figure.highlight {
+        margin: 12px 0;
+        padding: 7px 8px;
+    }
+}
