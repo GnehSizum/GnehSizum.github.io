@@ -33,13 +33,17 @@
                     <nav class="sidebar-nav">
                         
                             
-                                <a href="/" class="nav-link">Home</a>
+                                
+                                <a href="/" class="nav-link ">Home</a>
                             
-                                <a href="/blog" class="nav-link">Blog</a>
+                                
+                                <a href="/blog" class="nav-link ">Blog</a>
                             
-                                <a href="/note" class="nav-link">Note</a>
+                                
+                                <a href="/note" class="nav-link ">Note</a>
                             
-                                <a href="/about" class="nav-link">About</a>
+                                
+                                <a href="/about" class="nav-link active">About</a>
                             
                         
                     </nav>
@@ -73,157 +77,322 @@
 
             <div class="paper-content">
                 <!-- layout/about.ejs -->
-<div class="about-container">
-    
-    <!-- 头部信息 (左右布局) -->
-    <div class="about-header-split">
-        <div class="header-left">
+
+
+<div class="about-shell">
+    <section class="about-hero-card">
+        <div class="about-hero-main">
             <img class="about-avatar" src="/images/head.jpg" alt="avatar">
-            <div class="header-info">
+            <div class="about-hero-text">
                 <h2 class="about-name">GnehSizum</h2>
                 <p class="about-slogan">One today is worth two tomorrows.</p>
+                <div class="about-meta-chips">
+                    
+                        <span class="about-meta-chip">Profession · Robotics Engineer</span>
+                    
+                    
+                        <span class="about-meta-chip">Location · Shenzhen, China</span>
+                    
+                    <!-- <span class="about-meta-chip">Friends · 3</span>
+                    <span class="about-meta-chip">Moments · 9</span> -->
+                </div>
             </div>
         </div>
-        <div class="header-right">
-            
-                <div class="info-row"><span class="info-icon">💼 Profession: </span><span class="info-text">Robotics Engineer</span></div>
-            
-            
-                <div class="info-row"><span class="info-icon">📍 Location: &emsp;</span><span class="info-text">Shenzhen, China</span></div>
-            
-        </div>
-    </div>
-    <!-- <div class="paper-divider"></div> -->
+    </section>
 
-    <!-- Tab 内容区域 (Tab 按钮已移至 layout.ejs) -->
     <div class="about-tabs-content">
-        
-        <!-- Tab 1: About -->
         <section id="tab-about" class="tab-content-item active">
-            <div class="about-container">
-                <div class="about-content">
-                    <center><h3>👋你好 / Hello</h3></center>
-                    <p><center>这个人太懒了，没有留下介绍。</center></p>
-                    <p>&emsp;</p>
-                    <center><h3>🛠️技能 / Skills</h3></center>
-                    <div class="skill-tags">
-                        <span>ROS/ROS2</span>
-                        <span>SLAM</span>
-                        <span>Navigation</span>
-                        <span>CV</span>
-                        <span>Qt</span>
-                        <span>Unity</span>
+            <div class="about-grid">
+                <article class="about-card about-intro-card">
+                    <h3 class="about-card-title">Hello</h3>
+                    <p class="about-intro-text">这个人太懒了，没有留下介绍。</p>
+                    <div class="about-note-block">
+                        <span class="note-dot"></span>
+                        <p>
+                            一人说，将来胜过现在。<br>
+                            一人说，现在远不及从前。<br>
+                            一人说，什么?<br>
+                            时道，你们都侮辱我的现在。<br>
+                            从前好的，自己回去。<br>
+                            将来好的，跟我前去。<br>
+                            这说什么的，<br>
+                            我不和你说什么。<br>
+                            —— 鲁迅
+                        </p>
                     </div>
-                    <div class="skill-tags">
-                        <span>C/C++</span>
-                        <span>Python</span>
-                        <span>Java</span>
-                        <span>C#</span>
-                        <span>Go</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <p>&emsp;</p>
-                    <center><h3>📬联系 / Connect</h3></center>
-                    <div class="contact-wrapper">
-                    <table class="about-contact-table">
-                        <tr><td>&emsp;&emsp;QQ :</td><td>284782399</td></tr>
-                        <tr><td>&emsp;&emsp;Email :</td><td>muzs@foxmail.com</td></tr>
-                        <tr><td>&emsp;&emsp;Github :</td><td><a href="https://github.com/GnehSizum" target="_blank">GnehSizum</a></td></tr>
-                    </table>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="post-body">
-                
+                </article>
 
-            </div> -->
-            <!-- 
-                <div class="paper-divider"></div>
-                <div class="skill-tags">
-                    <span>Writer</span><span>Coder</span><span>Dreamer</span><span>Hexo Theme Developer</span>
-                </div>
-             -->
+                <article class="about-card about-skill-card">
+                    <h3 class="about-card-title">Skills</h3>
+                    <div class="skill-tags">
+                        
+                            <span class="skill-item">ROS/ROS2</span>
+                        
+                            <span class="skill-item">SLAM</span>
+                        
+                            <span class="skill-item">Navigation</span>
+                        
+                            <span class="skill-item">CV</span>
+                        
+                            <span class="skill-item">Qt</span>
+                        
+                            <span class="skill-item">Unity</span>
+                        
+                            <span class="skill-item">Android</span>
+                        
+                            <span class="skill-item">C/C++</span>
+                        
+                            <span class="skill-item">Python</span>
+                        
+                            <span class="skill-item">Java</span>
+                        
+                            <span class="skill-item">Go</span>
+                        
+                            <span class="skill-item">JavaScript</span>
+                        
+                            <span class="skill-item">TypeScript</span>
+                        
+                    </div>
+                </article>
+
+                <article class="about-card about-contact-card">
+                    <h3 class="about-card-title">Connect</h3>
+                    <ul class="about-contact-list">
+                        
+                            <li class="contact-row">
+                                <span class="contact-label">QQ</span>
+                                <span class="contact-value">
+                                    
+                                        284782399
+                                    
+                                </span>
+                            </li>
+                        
+                            <li class="contact-row">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">
+                                    
+                                        muzs@foxmail.com
+                                    
+                                </span>
+                            </li>
+                        
+                            <li class="contact-row">
+                                <span class="contact-label">GitHub</span>
+                                <span class="contact-value">
+                                    
+                                        <a href="https://github.com/GnehSizum" target="_blank" rel="noopener">GnehSizum</a>
+                                    
+                                </span>
+                            </li>
+                        
+                    </ul>
+                </article>
+            </div>
         </section>
 
-        <!-- Tab 2: Friends -->
         <section id="tab-friends" class="tab-content-item">
+            <div class="about-section-head">
+                <h3 class="about-section-title">Friends</h3>
+                <span class="about-section-subtitle">共 3 位伙伴</span>
+            </div>
+
             
                 <div class="friends-grid">
                     
-                        <a href="https://tars-cat.github.io/" target="_blank" class="friend-card">
-                            <div class="friend-avatar"><img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/friends_tarsgo_logo.ico"></div>
-                            <div class="friend-info"><h4 class="friend-name">TARS_Go AI Lab</h4><p class="friend-desc">TARS_Go AI Lab</p></div>
+                        <a href="https://tars-cat.github.io/" target="_blank" rel="noopener" class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/friends_tarsgo_logo.ico" alt="TARS_Go AI Lab">
+                            </div>
+                            <div class="friend-info">
+                                <h4 class="friend-name">TARS_Go AI Lab</h4>
+                                <p class="friend-desc">TARS_Go AI Lab</p>
+                            </div>
                         </a>
                     
-                        <a href="https://xiaoshuu.github.io/" target="_blank" class="friend-card">
-                            <div class="friend-avatar"><img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/friends_xiaoshuu.jpg"></div>
-                            <div class="friend-info"><h4 class="friend-name">xiaoshuu</h4><p class="friend-desc">hihihi</p></div>
+                        <a href="https://xiaoshuu.github.io/" target="_blank" rel="noopener" class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/friends_xiaoshuu.jpg" alt="xiaoshuu">
+                            </div>
+                            <div class="friend-info">
+                                <h4 class="friend-name">xiaoshuu</h4>
+                                <p class="friend-desc">hihihi</p>
+                            </div>
                         </a>
                     
-                        <a href="https://yeither.github.io/" target="_blank" class="friend-card">
-                            <div class="friend-avatar"><img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/friends_yeither.jpg"></div>
-                            <div class="friend-info"><h4 class="friend-name">Yeither</h4><p class="friend-desc">烨神你想要什么描述</p></div>
+                        <a href="https://yeither.github.io/" target="_blank" rel="noopener" class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/friends_yeither.jpg" alt="Yeither">
+                            </div>
+                            <div class="friend-info">
+                                <h4 class="friend-name">Yeither</h4>
+                                <p class="friend-desc">烨神你想要什么描述</p>
+                            </div>
                         </a>
                     
                 </div>
             
         </section>
 
-        <!-- Tab 3: Gallery -->
         <section id="tab-gallery" class="tab-content-item">
+            <div class="about-section-head">
+                <h3 class="about-section-title">Moments</h3>
+                <span class="about-section-subtitle">共 9 张照片</span>
+            </div>
+
             
-                <div class="gallery-masonry">
+                <div class="gallery-grid">
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmul_23.jpg">
-                            <p class="photo-caption">RMUL 2023 in Shenyang</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmul_23.jpg"
+                                data-photo-caption="RMUL 2023 in Shenyang"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmul_23.jpg" alt="RMUL 2023 in Shenyang">
+                            </button>
+                            
+                                <figcaption class="photo-caption">RMUL 2023 in Shenyang</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_23.jpg">
-                            <p class="photo-caption">RMUC 2023 in Qingdao</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_23.jpg"
+                                data-photo-caption="RMUC 2023 in Qingdao"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_23.jpg" alt="RMUC 2023 in Qingdao">
+                            </button>
+                            
+                                <figcaption class="photo-caption">RMUC 2023 in Qingdao</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_24.jpg">
-                            <p class="photo-caption">RMUC 2024 in Suzhou</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_24.jpg"
+                                data-photo-caption="RMUC 2024 in Suzhou"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_24.jpg" alt="RMUC 2024 in Suzhou">
+                            </button>
+                            
+                                <figcaption class="photo-caption">RMUC 2024 in Suzhou</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_final_24.jpg">
-                            <p class="photo-caption">RMUC 2024 in Shenzhen</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_final_24.jpg"
+                                data-photo-caption="RMUC 2024 in Shenzhen"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_final_24.jpg" alt="RMUC 2024 in Shenzhen">
+                            </button>
+                            
+                                <figcaption class="photo-caption">RMUC 2024 in Shenzhen</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmul_25.jpg">
-                            <p class="photo-caption">RMUL 2025 in Shenyang</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmul_25.jpg"
+                                data-photo-caption="RMUL 2025 in Shenyang"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmul_25.jpg" alt="RMUL 2025 in Shenyang">
+                            </button>
+                            
+                                <figcaption class="photo-caption">RMUL 2025 in Shenyang</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_25.jpg">
-                            <p class="photo-caption">RMUC 2025 in Suzhou</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_25.jpg"
+                                data-photo-caption="RMUC 2025 in Suzhou"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_rmuc_25.jpg" alt="RMUC 2025 in Suzhou">
+                            </button>
+                            
+                                <figcaption class="photo-caption">RMUC 2025 in Suzhou</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_graduate_25.jpg">
-                            <p class="photo-caption">Graduated, with friends</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_graduate_25.jpg"
+                                data-photo-caption="Graduated, with friends"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_graduate_25.jpg" alt="Graduated, with friends">
+                            </button>
+                            
+                                <figcaption class="photo-caption">Graduated, with friends</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_graduate_25_with_xiaoshuu.jpg">
-                            <p class="photo-caption">Graduated, with xiaoshuu</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_graduate_25_with_xiaoshuu.jpg"
+                                data-photo-caption="Graduated, with xiaoshuu"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_graduate_25_with_xiaoshuu.jpg" alt="Graduated, with xiaoshuu">
+                            </button>
+                            
+                                <figcaption class="photo-caption">Graduated, with xiaoshuu</figcaption>
+                            
+                        </figure>
                     
-                        <div class="photo-item">
-                            <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_national_game_25.jpg">
-                            <p class="photo-caption">The 15th National Games in Shenzhen</p>
-                        </div>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_national_game_25.jpg"
+                                data-photo-caption="The 15th National Games in Shenzhen"
+                                aria-label="查看大图"
+                            >
+                                <img src="https://mu-blog.oss-cn-shenzhen.aliyuncs.com/about/moments_national_game_25.jpg" alt="The 15th National Games in Shenzhen">
+                            </button>
+                            
+                                <figcaption class="photo-caption">The 15th National Games in Shenzhen</figcaption>
+                            
+                        </figure>
                     
                 </div>
             
         </section>
     </div>
+
+    <div id="photoLightbox" class="photo-lightbox" aria-hidden="true">
+        <div class="photo-lightbox-backdrop" data-action="close-lightbox"></div>
+        <div class="photo-lightbox-dialog" role="dialog" aria-modal="true" aria-label="照片预览">
+            <button type="button" class="photo-lightbox-close" id="photoLightboxClose" aria-label="关闭预览">Close</button>
+            <img id="photoLightboxImage" class="photo-lightbox-image" src="" alt="preview">
+            <p id="photoLightboxCaption" class="photo-lightbox-caption"></p>
+        </div>
+    </div>
 </div>
+
             </div>
 
             <footer class="paper-footer">
@@ -342,17 +511,116 @@
             const postsTabBtn = document.querySelector('button[onclick="switchTab(\'tab-posts\')"]');
             if(postsTabBtn) postsTabBtn.click();
 
+            // 更新 Tag Chip 激活态
+            const chips = document.querySelectorAll('.filter-tag-chip');
+            chips.forEach(chip => {
+                const chipTag = chip.getAttribute('data-tag');
+                const isActive = (tagName === 'all' && chipTag === 'all') || chipTag === tagName;
+                chip.classList.toggle('is-active', isActive);
+            });
+
             // 筛选文章
             const cards = document.querySelectorAll('.post-card');
             cards.forEach(card => {
                 const tags = card.getAttribute('data-tags') || '';
-                if(tagName === 'all' || tags.includes(tagName)) {
+                const tagList = tags ? tags.split(',').map(tag => tag.trim()) : [];
+                if(tagName === 'all' || tagList.includes(tagName)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
                 }
             });
         }
+
+        // 5. Archive Type Filtering Logic
+        window.filterArchiveType = function(typeName) {
+            const chips = document.querySelectorAll('.archive-filter-chip');
+            chips.forEach(chip => {
+                const chipType = chip.getAttribute('data-type');
+                const isActive = (typeName === 'all' && chipType === 'all') || chipType === typeName;
+                chip.classList.toggle('is-active', isActive);
+            });
+
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                const itemType = item.getAttribute('data-archive-type');
+                const visible = typeName === 'all' || itemType === typeName;
+
+                if (visible) {
+                    const wasHidden = item.classList.contains('hidden');
+                    item.classList.remove('hidden');
+                    if (wasHidden) {
+                        item.classList.remove('entering');
+                        void item.offsetWidth;
+                        item.classList.add('entering');
+                    }
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('entering');
+                }
+            });
+
+            const yearAnchors = document.querySelectorAll('.timeline-year-anchor');
+            yearAnchors.forEach(anchor => {
+                let next = anchor.nextElementSibling;
+                let hasVisibleItem = false;
+                while (next && !next.classList.contains('timeline-year-anchor')) {
+                    if (next.classList.contains('timeline-item') && !next.classList.contains('hidden')) {
+                        hasVisibleItem = true;
+                        break;
+                    }
+                    next = next.nextElementSibling;
+                }
+                anchor.classList.toggle('hidden', !hasVisibleItem);
+            });
+        }
+
+        // 6. Moments Lightbox
+        document.addEventListener('DOMContentLoaded', function() {
+            var lightbox = document.getElementById('photoLightbox');
+            var lightboxImage = document.getElementById('photoLightboxImage');
+            var lightboxCaption = document.getElementById('photoLightboxCaption');
+            var closeBtn = document.getElementById('photoLightboxClose');
+
+            if (!lightbox || !lightboxImage || !lightboxCaption || !closeBtn) return;
+
+            if (lightbox.parentNode !== document.body) {
+                document.body.appendChild(lightbox);
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.setAttribute('src', '');
+                lightboxCaption.textContent = '';
+            }
+
+            document.addEventListener('click', function(event) {
+                var trigger = event.target.closest('.photo-zoom-trigger');
+                if (trigger) {
+                    var src = trigger.getAttribute('data-photo-src') || '';
+                    var caption = trigger.getAttribute('data-photo-caption') || '';
+                    if (!src) return;
+                    lightboxImage.setAttribute('src', src);
+                    lightboxCaption.textContent = caption;
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    return;
+                }
+
+                if (event.target.matches('[data-action="close-lightbox"]')) {
+                    closeLightbox();
+                }
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
+        });
     </script>
     <script>
     MathJax = {
@@ -375,5 +643,63 @@
     };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    function initCalendar() {
+        const date = new Date();
+        const calHeader = document.getElementById('calHeader');
+        const calDays = document.getElementById('calDays');
+        if(!calHeader || !calDays) return;
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        calHeader.innerText = monthNames[date.getMonth()] + " " + date.getFullYear();
+
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+        let html = '';
+        // 填充空白
+        for(let i=0; i<firstDay; i++) html += '<span class="cal-day empty"></span>';
+        // 填充日期
+        for(let i=1; i<=daysInMonth; i++) {
+            let isToday = (i === date.getDate()) ? 'today' : '';
+            html += `<span class="cal-day ${isToday}">${i}</span>`;
+        }
+        calDays.innerHTML = html;
+    }
+    document.addEventListener('DOMContentLoaded', initCalendar);
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const highlights = document.querySelectorAll('figure.highlight');
+        
+        highlights.forEach(block => {
+            // 创建复制按钮
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.type = 'button';
+            button.innerText = 'Copy';
+            
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 兼容性获取代码文本：优先寻找 pre，否则找 td.code
+                const codeElement = block.querySelector('.code pre') || block.querySelector('td.code');
+                const code = codeElement.innerText;
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerText = 'Copied!';
+                    button.classList.add('success');
+                    
+                    setTimeout(() => {
+                        button.innerText = 'Copy';
+                        button.classList.remove('success');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>

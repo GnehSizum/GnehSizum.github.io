@@ -1,17 +1,35 @@
+/* source/css/modules/base.css */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     background-color: var(--bg-page);
+    background: radial-gradient(circle at 50% 0%, #eef5ff 0%, #f3f3f3 100%) fixed;
     color: var(--text-main);
-    font-family: var(--font-serif);
-    line-height: 1.8;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
 a:hover { color: var(--accent); }
 
+/* 原本的水印层 - 修改为极淡的背景装饰 */
 .watermark-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1; pointer-events: none; opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' fill='%23333' font-family='Georgia, serif' font-size='20' text-anchor='middle' dominant-baseline='middle' transform='rotate(-30 100 100)'%3EPeanuts%3C/text%3E%3C/svg%3E");
+    z-index: -1; pointer-events: none; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' fill='%23000' font-family='sans-serif' font-size='14' text-anchor='middle' dominant-baseline='middle' transform='rotate(-30 100 100)'%3EBLOG%3C/text%3E%3C/svg%3E");
+}
+
+/* 核心：修复 Tab 切换显示逻辑 */
+.tab-content-item {
+    display: none !important;
+}
+.tab-content-item.active {
+    display: block !important;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }

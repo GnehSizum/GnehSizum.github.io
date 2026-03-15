@@ -1,143 +1,60 @@
 /* source/css/modules/post-card.css */
+.post-list { display: flex; flex-direction: column; gap: 20px; }
 
-.post-list {
+.post-card.hidden { display: none !important; }
+
+.post-card {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius);
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-}
-
-/* 卡片容器 */
-.post-card {
-    background-color: #fefefe;
-    border-radius: 8px;
-    padding: 8px 24px;
-    
-    /* === 核心修改：Flex 布局 === */
-    display: flex;
-    flex-direction: column; /* 垂直排列 */
-    height: 100%;           /* 确保占满高度 */
-    min-height: 160px;      /* 给个最小高度，保证视觉一致 */
-    /* ========================= */
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    min-height: 160px;
+    border: 1px solid var(--border-line);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .post-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    border-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-paper);
 }
 
-/* 背景水印 */
+/* Win11 风格的角标代替原本的水印 */
 .post-card::after {
     content: attr(data-type);
-    position: absolute;
-    top: -15px; right: -10px;
-    font-family: "Georgia", serif;
-    font-size: 80px; font-weight: bold; line-height: 1;
-    transform: rotate(15deg);
-    pointer-events: none; z-index: 0;
-    color: #e0e0e0; opacity: 0.15;
-    transition: all 0.3s ease;
-}
-.post-card[data-type="Blog"]::after { color: var(--accent); opacity: 0.08; }
-.post-card[data-type="Note"]::after { color: #9c8b74; opacity: 0.1; }
-
-/* 头部和标题 */
-.card-header, .post-title {
-    position: relative; z-index: 1;
-    width: 100%;
-    flex-shrink: 0; /* 防止标题被压缩 */
-}
-
-.card-header { margin-bottom: 12px; }
-.card-date {
-    font-family: var(--font-serif);
-    font-size: 13px; color: #999;
-    font-weight: 500; letter-spacing: 0.5px;
+    position: absolute; top: 12px; right: 12px;
+    font-family: var(--font-sans); font-size: 10px; font-weight: 800;
+    color: var(--accent); opacity: 0.3; text-transform: uppercase;
 }
 
 .post-card .post-title {
-    font-size: 20px; margin-bottom: 8px;
-    font-weight: 700; line-height: 1.4;
-    text-align: left;
-    border-bottom: none !important; padding-bottom: 0 !important;
+    font-family: var(--font-serif);
+    font-size: 20px; font-weight: 700; margin-bottom: 8px;
 }
-.post-card .post-title a { color: #333; transition: color 0.3s; }
-.post-card:hover .post-title a { color: var(--accent); }
 
-/* 摘要 */
 .post-card .post-excerpt {
-    font-size: 14px; color: #666; line-height: 1.6;
-    text-align: justify; 
-    width: 100%;
-    position: relative; z-index: 1;
-    margin-bottom: 16px; /* 这里的 margin 决定了文字和按钮的最小间距 */
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    font-size: 14px; color: var(--text-meta);
+    margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
-.post-card .post-excerpt p { margin-bottom: 0; }
 
-/* === 按钮容器 (Flex 暴力对齐版) === */
-.post-action {
-    position: relative; z-index: 2;
-    width: 100%;
-    
-    /* === 核心修改：把按钮挤到最下面 === */
-    margin-top: auto !important; /* 神奇代码：自动占据上方所有剩余空间 */
-    text-align: right !important; /* 按钮靠右 */
-    /* ================================= */
+.post-action { margin-top: auto; text-align: right; }
+
+.read-more-btn {
+    background: rgba(0, 103, 192, 0.05);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: var(--radius-inner);
+    font-size: 13px; font-weight: 600;
 }
+.read-more-btn:hover { background: var(--accent); color: #fff; }
 
 .card-tags {
-    position: absolute;
-    bottom: 24px;   /* 与右侧按钮对齐 */
-    left: 30px;     /* 与左侧内边距对齐 */
-    z-index: 5;
-    
-    /* 防止标签太多撞到右边的按钮 */
-    max-width: 65%; 
-    height: 24px;   /* 固定高度 */
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; /* 超出显示省略号 */
-    
-    /* 允许横向滚动 (可选，如果想支持滑动看标签，可以改为 auto) */
-    /* overflow-x: auto; */
+    position: absolute; bottom: 24px; left: 24px;
+    max-width: 60%; overflow: hidden; white-space: nowrap;
 }
-
-.card-tag-item {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: #999;
-    margin-right: 12px;
-    text-decoration: none;
-    transition: color 0.2s;
-    display: inline-block;
-}
-
-.card-tag-item:hover {
-    color: var(--accent); /* 悬停变色 */
-}
-
-/* 移动端适配：如果屏幕太窄，防止重叠 */
-@media (max-width: 500px) {
-    .card-tags {
-        max-width: 50%; /* 手机上留更多空间给按钮 */
-    }
-}
-
-/* 按钮样式 */
-.read-more-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 14px; font-family: var(--font-serif);
-    color: var(--accent); font-weight: 600; transition: all 0.3s;
-    cursor: pointer;
-    background: transparent;
-    padding-left: 5px;
-}
-.read-more-btn .arrow { transition: transform 0.3s; font-size: 16px; }
-.read-more-btn:hover .arrow { transform: translateX(4px); }
+.card-tag-item { font-size: 12px; color: #999; margin-right: 10px; }

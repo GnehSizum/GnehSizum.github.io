@@ -31,13 +31,17 @@
                     <nav class="sidebar-nav">
                         
                             
-                                <a href="/" class="nav-link">Home</a>
+                                
+                                <a href="/" class="nav-link ">Home</a>
                             
-                                <a href="/blog" class="nav-link">Blog</a>
+                                
+                                <a href="/blog" class="nav-link active">Blog</a>
                             
-                                <a href="/note" class="nav-link">Note</a>
+                                
+                                <a href="/note" class="nav-link ">Note</a>
                             
-                                <a href="/about" class="nav-link">About</a>
+                                
+                                <a href="/about" class="nav-link ">About</a>
                             
                         
                     </nav>
@@ -246,17 +250,116 @@
             const postsTabBtn = document.querySelector('button[onclick="switchTab(\'tab-posts\')"]');
             if(postsTabBtn) postsTabBtn.click();
 
+            // 更新 Tag Chip 激活态
+            const chips = document.querySelectorAll('.filter-tag-chip');
+            chips.forEach(chip => {
+                const chipTag = chip.getAttribute('data-tag');
+                const isActive = (tagName === 'all' && chipTag === 'all') || chipTag === tagName;
+                chip.classList.toggle('is-active', isActive);
+            });
+
             // 筛选文章
             const cards = document.querySelectorAll('.post-card');
             cards.forEach(card => {
                 const tags = card.getAttribute('data-tags') || '';
-                if(tagName === 'all' || tags.includes(tagName)) {
+                const tagList = tags ? tags.split(',').map(tag => tag.trim()) : [];
+                if(tagName === 'all' || tagList.includes(tagName)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
                 }
             });
         }
+
+        // 5. Archive Type Filtering Logic
+        window.filterArchiveType = function(typeName) {
+            const chips = document.querySelectorAll('.archive-filter-chip');
+            chips.forEach(chip => {
+                const chipType = chip.getAttribute('data-type');
+                const isActive = (typeName === 'all' && chipType === 'all') || chipType === typeName;
+                chip.classList.toggle('is-active', isActive);
+            });
+
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                const itemType = item.getAttribute('data-archive-type');
+                const visible = typeName === 'all' || itemType === typeName;
+
+                if (visible) {
+                    const wasHidden = item.classList.contains('hidden');
+                    item.classList.remove('hidden');
+                    if (wasHidden) {
+                        item.classList.remove('entering');
+                        void item.offsetWidth;
+                        item.classList.add('entering');
+                    }
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('entering');
+                }
+            });
+
+            const yearAnchors = document.querySelectorAll('.timeline-year-anchor');
+            yearAnchors.forEach(anchor => {
+                let next = anchor.nextElementSibling;
+                let hasVisibleItem = false;
+                while (next && !next.classList.contains('timeline-year-anchor')) {
+                    if (next.classList.contains('timeline-item') && !next.classList.contains('hidden')) {
+                        hasVisibleItem = true;
+                        break;
+                    }
+                    next = next.nextElementSibling;
+                }
+                anchor.classList.toggle('hidden', !hasVisibleItem);
+            });
+        }
+
+        // 6. Moments Lightbox
+        document.addEventListener('DOMContentLoaded', function() {
+            var lightbox = document.getElementById('photoLightbox');
+            var lightboxImage = document.getElementById('photoLightboxImage');
+            var lightboxCaption = document.getElementById('photoLightboxCaption');
+            var closeBtn = document.getElementById('photoLightboxClose');
+
+            if (!lightbox || !lightboxImage || !lightboxCaption || !closeBtn) return;
+
+            if (lightbox.parentNode !== document.body) {
+                document.body.appendChild(lightbox);
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.setAttribute('src', '');
+                lightboxCaption.textContent = '';
+            }
+
+            document.addEventListener('click', function(event) {
+                var trigger = event.target.closest('.photo-zoom-trigger');
+                if (trigger) {
+                    var src = trigger.getAttribute('data-photo-src') || '';
+                    var caption = trigger.getAttribute('data-photo-caption') || '';
+                    if (!src) return;
+                    lightboxImage.setAttribute('src', src);
+                    lightboxCaption.textContent = caption;
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    return;
+                }
+
+                if (event.target.matches('[data-action="close-lightbox"]')) {
+                    closeLightbox();
+                }
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
+        });
     </script>
     <script>
     MathJax = {
@@ -279,5 +382,63 @@
     };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    function initCalendar() {
+        const date = new Date();
+        const calHeader = document.getElementById('calHeader');
+        const calDays = document.getElementById('calDays');
+        if(!calHeader || !calDays) return;
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        calHeader.innerText = monthNames[date.getMonth()] + " " + date.getFullYear();
+
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+        let html = '';
+        // 填充空白
+        for(let i=0; i<firstDay; i++) html += '<span class="cal-day empty"></span>';
+        // 填充日期
+        for(let i=1; i<=daysInMonth; i++) {
+            let isToday = (i === date.getDate()) ? 'today' : '';
+            html += `<span class="cal-day ${isToday}">${i}</span>`;
+        }
+        calDays.innerHTML = html;
+    }
+    document.addEventListener('DOMContentLoaded', initCalendar);
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const highlights = document.querySelectorAll('figure.highlight');
+        
+        highlights.forEach(block => {
+            // 创建复制按钮
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.type = 'button';
+            button.innerText = 'Copy';
+            
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 兼容性获取代码文本：优先寻找 pre，否则找 td.code
+                const codeElement = block.querySelector('.code pre') || block.querySelector('td.code');
+                const code = codeElement.innerText;
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerText = 'Copied!';
+                    button.classList.add('success');
+                    
+                    setTimeout(() => {
+                        button.innerText = 'Copy';
+                        button.classList.remove('success');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>

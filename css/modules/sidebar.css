@@ -1,254 +1,279 @@
-/* 通用卡片样式 */
+/* source/css/modules/sidebar.css */
+
+/* --- 1. 通用侧边栏卡片 (Win11 Mica 材质) --- */
 .sidebar-card {
-    background: var(--bg-paper);
+    background: var(--bg-mica);
+    backdrop-filter: blur(var(--blur-val)) saturate(var(--saturate-val));
+    -webkit-backdrop-filter: blur(var(--blur-val)) saturate(var(--saturate-val));
     border-radius: var(--radius);
-    box-shadow: var(--shadow-paper);
-    border: 1px solid rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
-    overflow: hidden;
+    box-shadow: var(--shadow-win);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
+    margin-bottom: var(--gap);
 }
 
-@media (max-width: 768px) {
-    .sidebar-card { width: 100%; }
-}
-
-/* -- 用户卡片 (可折叠) -- */
+/* --- 2. 用户信息卡片 (User Card) --- */
 .user-card .sidebar-inner {
-    padding: 20px 15px;
+    padding: 24px 16px;
     text-align: center;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
 }
 
-/* 折叠按钮 */
-.card-toggle-btn {
-    position: absolute;
-    top: 10px; right: 10px;
-    width: 24px; height: 24px;
-    cursor: pointer; z-index: 10;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0.3; transition: all 0.3s ease;
-    border-radius: 50%;
-}
-.card-toggle-btn:hover { opacity: 1; background-color: rgba(0, 0, 0, 0.03); }
-@media (max-width: 768px) { .sidebar-toggle { display: none; } }
-
-/* 箭头动画 */
-.toggle-arrow {
-    width: 8px; height: 8px;
-    border-right: 2px solid #555;
-    border-bottom: 2px solid #555;
-    transform: rotate(45deg); 
-    margin-top: -3px;
-    transition: transform 0.3s ease;
-}
-.user-card.expanded .toggle-arrow { transform: rotate(225deg); margin-top: 3px; }
-.user-card.collapsed .toggle-arrow { transform: rotate(45deg); margin-top: -3px; }
-
-/* 状态逻辑 */
-.user-card.expanded .author-desc, .user-card.expanded .sidebar-nav { display: block; opacity: 1; }
-.user-card.expanded .sidebar-inner { padding: 30px 20px; }
-.user-card.expanded .avatar { width: 80px; height: 80px; }
-.user-card.expanded .author-name { font-size: 16px; margin-bottom: 10px; }
-
-.user-card.collapsed .author-desc, .user-card.collapsed .sidebar-nav { display: none; }
-.user-card.collapsed .sidebar-inner { padding: 15px 10px; }
-.user-card.collapsed .avatar { width: 50px; height: 50px; margin-bottom: 5px; border-width: 2px; }
-.user-card.collapsed .author-name { font-size: 13px; margin-bottom: 0; }
-@media (max-width: 768px) {
-    .user-card.collapsed .sidebar-nav { display: block; }
-    .user-card.collapsed .sidebar-inner { padding: 20px; }
-}
-
-/* 元素样式 */
+/* 头像样式 */
 .avatar {
-    width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
-    border: 3px solid rgba(255,255,255,0.5);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 10px; transition: all 0.3s;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover;
 }
-.author-name { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: var(--accent-dark); }
-.author-desc { font-size: 12px; color: var(--text-meta); font-family: var(--font-sans); margin-bottom: 15px; line-height: 1.4; }
-.sidebar-nav { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 8px 0; margin-bottom: 15px; }
-.nav-link { display: block; padding: 4px 0; font-size: 14px; font-family: var(--font-sans); color: #555; }
-.nav-link:hover { color: var(--accent); background: #f9f9f9; }
-.sidebar-footer { font-size: 11px; color: #bbb; font-family: var(--font-sans); }
 
-/* -- 左下侧扩展卡片 -- */
-.extra-card { padding: 15px; }
-.extra-title {
-    font-size: 12px; text-transform: uppercase; color: #999;
-    margin-bottom: 10px; font-family: var(--font-sans); letter-spacing: 1px;
-    border-bottom: 1px dashed #eee; padding-bottom: 5px;
+/* 名字与描述 */
+.author-name {
+    font-family: var(--font-serif); /* 关键点：姓名使用衬线体体现优雅 */
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
 }
-.extra-list { list-style: none; }
-.extra-list li { margin-bottom: 8px; font-size: 13px; line-height: 1.4; }
-.extra-list a { display: flex; flex-direction: column; }
-.extra-list .list-title { color: #444; }
-.extra-list .list-date { font-size: 11px; color: #aaa; font-family: var(--font-sans); }
 
-.category-tree ul { list-style: none; padding-left: 10px; }
-.category-tree .cat-list-item { margin-bottom: 5px; font-size: 13px; }
-.category-tree .cat-list-link { color: #555; }
-.category-tree .cat-list-child { padding-left: 15px; border-left: 1px solid #eee; margin-top: 5px; }
-
-/* === Note 页面左侧目录树样式 === */
-
-.note-tree-container {
+.author-desc {
     font-family: var(--font-sans);
-    font-size: 13px;
+    font-size: 11.5px;
+    color: var(--text-meta);
+    line-height: 1.5;
+    padding: 0 12px;
+    margin-bottom: 18px;
+}
+
+/* 导航链接 */
+.sidebar-nav {
+    border-top: 1px solid var(--border-line);
+    padding: 8px 0;
     margin-top: 10px;
 }
 
-/* 列表重置 */
+.nav-link {
+    display: block;
+    padding: 8px 16px;
+    margin: 2px 8px;
+    font-size: 13.5px;
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    border-radius: var(--radius-inner);
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
+}
+
+.nav-link.active {
+    background-color: rgba(0, 103, 192, 0.1);
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 4px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(0, 103, 192, 0.28);
+    animation: navPulse 2s ease-in-out infinite;
+}
+
+@keyframes navPulse {
+    0%,
+    100% {
+        opacity: 0.92;
+        box-shadow: 0 0 0 0 rgba(0, 103, 192, 0.18);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 0 5px rgba(0, 103, 192, 0.1);
+    }
+}
+
+/* --- 3. 折叠/展开交互逻辑 --- */
+
+/* 侧边栏折叠按钮 (修正位置与层级) */
+.card-toggle-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0);
+}
+
+.card-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.toggle-arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--text-meta);
+    border-bottom: 2px solid var(--text-meta);
+    transform: rotate(-45deg); /* 默认朝右的箭头图标 */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 折叠状态样式补全 */
+.user-card.collapsed .avatar {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 4px;
+}
+.user-card.collapsed .author-desc,
+.user-card.collapsed .sidebar-nav {
+    display: none;
+}
+.user-card.collapsed .author-name {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+.user-card.collapsed .toggle-arrow {
+    transform: rotate(45deg); /* 折叠时图标指向右下或右 */
+}
+
+/* --- 4. 扩展卡片 (Recent Blogs / Directory) --- */
+.extra-card {
+    padding: 20px 16px;
+}
+
+.extra-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-meta);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-line);
+}
+
+.extra-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.extra-list li {
+    margin-bottom: 10px;
+    border-radius: var(--radius-inner);
+    transition: background 0.2s;
+}
+
+.extra-list li:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.extra-list a {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 8px;
+    text-decoration: none;
+}
+
+.extra-list .list-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 限制标题最多显示两行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.extra-list .list-date {
+    font-size: 10.5px;
+    color: var(--text-meta);
+    margin-top: 4px;
+    font-family: var(--font-sans);
+}
+
+/* --- 5. Note 页面专用目录树 (Directory Tree) --- */
+.note-tree-container {
+    padding: 4px 8px;
+    font-family: var(--font-sans);
+}
+
 .note-ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* 文件夹样式 */
 .note-folder {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .folder-label {
     display: block;
-    color: #999;
-    font-weight: bold;
-    font-size: 12px;
+    color: var(--text-meta);
+    font-weight: 700;
+    font-size: 11px;
     text-transform: uppercase;
-    margin-bottom: 4px;
-    margin-top: 8px;
-    /* 可选：加个文件夹图标 */
-    /* content: '📁 '; */
+    padding: 8px 0 4px 10px;
+    letter-spacing: 0.5px;
 }
 
-/* 文件链接样式 */
 .note-file {
-    margin-bottom: 4px;
-    line-height: 1.5;
+    margin: 1px 0;
 }
 
 .note-link {
     display: block;
-    color: #555;
-    text-decoration: none;
+    padding: 7px 12px;
+    font-size: 13px;
+    color: var(--text-main);
+    border-radius: var(--radius-inner);
     transition: all 0.2s;
-    border-left: 2px solid transparent;
-    padding-left: 10px; /* 文字左侧留白 */
-    margin-left: 2px;
-}
-
-.note-link:hover {
-    color: var(--accent);
-    border-left-color: var(--accent); /* 悬停时左侧出现色条 */
-    background: linear-gradient(90deg, rgba(0,0,0,0.02), transparent);
-}
-
-/* --- 层级缩进控制 --- */
-
-/* 第一层 (root) 不需要缩进 */
-.depth-0 { }
-
-/* 第二层及以上开始缩进 */
-.depth-1 { padding-left: 10px; border-left: 1px solid #eee; margin-left: 5px; }
-.depth-2 { padding-left: 10px; border-left: 1px solid #eee; margin-left: 5px; }
-.depth-3 { padding-left: 10px; border-left: 1px solid #eee; margin-left: 5px; }
-
-/* 针对深层文件夹标题的微调 */
-.depth-1 .folder-label { color: #aaa; font-size: 11px; }
-
-/* -- 右侧目录 TOC -- */
-.toc-card {
-    padding: 20px 25px; /* 稍微加宽一点内边距 */
-    max-height: calc(100vh - 80px); /* 留出一点余量 */
-    overflow-y: auto;
-    /* 隐藏滚动条但保留功能 (Firefox) */
-    scrollbar-width: thin; 
-    scrollbar-color: #eee transparent;
-}
-/* 隐藏滚动条 (Chrome/Safari) */
-.toc-card::-webkit-scrollbar { width: 4px; }
-.toc-card::-webkit-scrollbar-thumb { background: #eee; border-radius: 4px; }
-
-.toc-title {
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    font-weight: 700;
-}
-
-/* 1. 重置所有列表样式 (彻底去除 1. 2. 3. 和原点) */
-.toc, .toc ol, .toc ul, .toc li {
-    list-style: none !important;
-    padding: 0;
-    margin: 0;
-}
-
-/* 2. 基础链接样式 */
-.toc-link {
-    display: block;
-    color: #666;
     text-decoration: none;
-    line-height: 1.6;
-    transition: all 0.2s ease;
-    
-    /* 截断过长标题 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    
-    /* 增加上下点击范围 */
-    padding: 4px 0;
 }
 
-/* 悬停与激活状态 */
-.toc-link:hover,
-.toc-link.active {
+.note-link:hover {
+    background-color: rgba(0, 103, 192, 0.06);
     color: var(--accent);
 }
-.toc-link.active {
-    font-weight: 600;
-}
 
-/* === 3. 层级缩进设计 (Visual Hierarchy) === */
+/* 层级缩进控制 */
+.depth-1 { padding-left: 12px; border-left: 1px solid var(--border-line); margin-left: 4px; }
+.depth-2 { padding-left: 12px; border-left: 1px solid var(--border-line); margin-left: 4px; }
+.depth-3 { padding-left: 12px; border-left: 1px solid var(--border-line); margin-left: 4px; }
 
-/* --- 一级目录 (H1/H2) --- */
-.toc > .toc-item {
-    margin-top: 8px; /* 一级目录之间稍微分开点 */
-}
-
-.toc > .toc-item > .toc-link {
-    font-size: 14px;
-    color: #333; /* 一级目录颜色深一点 */
-    font-weight: 500;
-}
-
-/* --- 子目录容器 (H3, H4...) --- */
-.toc-child {
-    /* 核心：左侧缩进 + 左侧装饰线 */
-    margin-top: 4px;
-    padding-left: 12px; 
-    border-left: 1px solid #eee; /* 淡灰色的线 */
-    margin-left: 4px; /* 让线稍微往里缩一点 */
-    display: block !important; /* 强制展开 */
-}
-
-/* --- 二级目录 (H3) --- */
-.toc-child .toc-link {
-    font-size: 13px;
-    color: #777; /* 二级目录颜色淡一点 */
-}
-
-/* --- 三级目录 (H4) --- */
-.toc-child .toc-child {
-    margin-left: 2px; /* 再次缩进 */
-    padding-left: 12px;
-}
-
-.toc-child .toc-child .toc-link {
-    font-size: 12px; /* 字号更小 */
-    color: #999;
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .sidebar-card { width: 100%; margin-bottom: 16px; }
+    .card-toggle-btn { display: none; } /* 移动端通常不建议折叠侧边栏以保持导航直观 */
+    .user-card.collapsed .author-desc,
+    .user-card.collapsed .sidebar-nav {
+        display: block;
+    }
 }

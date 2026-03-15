@@ -1,4 +1,4 @@
-/* --- 布局容器 (Flexbox) --- */
+/* source/css/modules/layout.css */
 .layout-container {
     max-width: var(--max-width);
     margin: 30px auto;
@@ -6,10 +6,8 @@
     display: flex;
     align-items: flex-start;
     gap: var(--gap);
-    position: relative;
 }
 
-/* === 左侧栏区域 === */
 .left-column {
     width: var(--sidebar-width);
     display: flex;
@@ -20,230 +18,42 @@
     flex-shrink: 0;
 }
 
-/* === 中间主内容区 === */
+/* 核心修改：中间模块背景与侧边栏完全一致 */
 .paper-main {
     flex: 1;
-    background: var(--bg-paper);
+    background: var(--bg-mica);
+    backdrop-filter: blur(var(--blur-val)) saturate(var(--saturate-val));
+    -webkit-backdrop-filter: blur(var(--blur-val)) saturate(var(--saturate-val));
     border-radius: var(--radius);
-    box-shadow: var(--shadow-paper);
-    padding: 32px 48px;
-    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: var(--shadow-win);
+    padding: 32px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     min-height: 85vh;
     min-width: 0;
 }
 
 .paper-header {
-    text-align: right;
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--text-main);
-    padding-bottom: 10px;
-}
-
-.section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--text-main);
-    font-family: var(--font-serif);
-    font-style: italic;
-}
-
-.paper-footer {
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    text-align: center;
-    font-size: 12px;
-    color: #ccc;
-}
-
-/* === 右侧栏 (TOC) === */
-.right-column {
-    width: var(--toc-width);
-    position: sticky;
-    top: 30px;
-    flex-shrink: 0;
-}
-
-/* === 响应式 === */
-@media (max-width: 1100px) {
-    .layout-container { flex-wrap: wrap; }
-    .right-column { display: none; }
-    .paper-main { padding: 40px; }
-}
-
-@media (max-width: 768px) {
-    .layout-container { flex-direction: column; gap: 15px; margin-top: 10px; }
-    .left-column { width: 100%; position: static; }
-    .paper-main { padding: 25px 15px; }
-    .section-title { font-size: 22px; }
-}
-
-.paper-header {
     display: flex;
-    align-items: flex-end; /* 底部对齐，保证文字基线一致 */
-    justify-content: space-between; /* 核心：左边 Tabs，右边 Title */
+    align-items: flex-end;
+    justify-content: space-between;
     margin-bottom: 32px;
-    border-bottom: 2px solid var(--text-main);
-    padding-bottom: 0;
-    height: 50px;
+    border-bottom: 1px solid var(--border-line);
+    padding-bottom: 8px;
 }
 
-/* 2. 左侧 Tabs 样式 (微调以适配右侧文字的存在) */
-.header-tabs {
-    display: flex;
-    gap: 32px;
-    flex: 1; /* 让 Tabs 占据左侧空间 */
-}
-
+.header-tabs { display: flex; gap: 8px; }
 .header-tab-btn {
-    background: none;
-    border: none;
-    font-family: var(--font-serif);
-    font-size: 18px; /* 字号大一点 */
-    font-weight: bold;
-    color: #888888; /* 默认灰色 */
-    cursor: pointer;
-    padding-bottom: 8px; /* 距离底线的距离 */
-    position: relative;
-    transition: all 0.3s;
+    background: transparent; border: none; font-family: var(--font-sans);
+    font-size: 14px; font-weight: 600; color: var(--text-meta);
+    cursor: pointer; padding: 6px 16px; border-radius: var(--radius-inner);
 }
+.header-tab-btn.active { background: #fff; color: var(--accent); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 
-.header-tab-btn:hover {
-    color: var(--text-main);
-}
+.header-right-title { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: var(--text-main); line-height: 1; }
 
-.header-tab-btn.active {
-    color: var(--text-main); /* 选中变黑 */
-}
+.paper-footer { margin-top: 60px; padding: 20px 0; border-top: 1px solid var(--border-line); text-align: center; font-size: 12px; color: var(--text-meta); }
 
-/* 选中时的底部指示条 (可选，或者直接靠颜色区分) */
-.header-tab-btn.active::after {
-    content: "";
-    position: absolute;
-    bottom: -2px; /* 盖住底部的线 */
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: var(--accent);
-}
+.right-column { width: var(--toc-width); position: sticky; top: 30px; flex-shrink: 0; }
 
-/* 3. 新增：右侧文字样式 */
-.header-right-title {
-    font-family: var(--font-serif);
-    font-size: 28px;       /* 字号稍大 */
-    font-weight: bold;
-    color: var(--text-main);
-    font-style: italic;    /* 保持之前的斜体风格 */
-    line-height: 1;        /* 紧凑行高 */
-    padding-bottom: 8px;   /* 稍微离底线一点距离，视觉上更平衡 */
-    white-space: nowrap;   /* 防止换行 */
-    opacity: 0.9;
-}
-
-/* 响应式适配：手机端如果太挤，可以调整一下 */
-@media (max-width: 600px) {
-    .paper-header {
-        flex-wrap: wrap;
-        height: auto;
-        padding-bottom: 10px;
-    }
-    .header-right-title {
-        display: none; /* 手机端空间不足时，建议隐藏右侧大标题，只保留 Tab */
-    }
-}
-
-/* =========================================
-   Tab 内容容器切换
-   ========================================= */
-.tab-content-item {
-    display: none;
-    animation: fadeIn 0.4s ease;
-}
-.tab-content-item.active {
-    display: block;
-}
-
-/* =========================================
-   归档样式 (复刻图片风格)
-   ========================================= */
-.archive-container {
-    padding: 8px 0;
-    font-family: var(--font-serif);
-}
-
-.archive-year-wrap {
-    margin-bottom: 8px;
-}
-
-.archive-year {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    border-bottom: 4px solid var(--accent); /* 年份下的橙色/主题色短线 */
-    display: inline-block;
-    /* padding-bottom: 8px; */
-    margin-bottom: 16px;
-}
-
-.archive-list {
-    list-style: none;
-    padding: 0;
-}
-
-.archive-item {
-    display: flex;
-    align-items: baseline;
-    padding: 2px 0;
-    border-bottom: 1px dashed #eee; /* 可选：虚线分割 */
-    transition: padding-left 0.2s;
-}
-.archive-item:hover {
-    padding-left: 10px;
-    background: #fafafa;
-}
-
-.archive-date {
-    font-family: "Courier New", monospace; /* 等宽字体显示日期 */
-    font-size: 15px;
-    color: #999;
-    font-weight: bold;
-    margin-right: 20px;
-    width: 50px; /* 固定宽度对齐 */
-    flex-shrink: 0;
-}
-
-.archive-title {
-    font-size: 15px;
-    color: #444;
-}
-.archive-title:hover {
-    color: var(--accent);
-    text-decoration: underline;
-}
-
-/* =========================================
-   标签云页样式
-   ========================================= */
-.tags-cloud-panel {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-    background: #fafafa;
-    border-radius: 8px;
-}
-.tags-cloud-panel a {
-    display: inline-block;
-    margin: 5px 10px;
-    font-size: 14px;
-    color: #666;
-    border-bottom: 1px solid transparent;
-}
-.tags-cloud-panel a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-}
-
-/* 隐藏及显示标签过滤后的文章 */
-.post-card.hidden {
-    display: none !important;
-}
+@media (max-width: 1100px) { .right-column { display: none; } .layout-container { flex-wrap: wrap; } }
+@media (max-width: 768px) { .layout-container { flex-direction: column; } .paper-main { padding: 20px 15px; } }
