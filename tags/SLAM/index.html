@@ -22,7 +22,6 @@
                     <span class="toggle-arrow"></span>
                 </div>
                 <div class="sidebar-inner">
-                    
                     <div class="author-area">
                         <img class="avatar" src="/images/head.jpg" alt="avatar">
                         <h3 class="author-name">GnehSizum</h3>
@@ -345,6 +344,27 @@
         
     </div>
 
+    
+        <div class="mobile-float-nav" id="mobileFloatNav" aria-hidden="true">
+            <button type="button" class="mobile-nav-fab" id="mobileNavFab" aria-label="打开站点导航">Menu</button>
+            <nav class="mobile-float-nav-panel" id="mobileFloatNavPanel" aria-label="移动端导航">
+                
+                    
+                    <a href="/" class="mobile-float-nav-link ">Home</a>
+                
+                    
+                    <a href="/blog" class="mobile-float-nav-link active">Blog</a>
+                
+                    
+                    <a href="/note" class="mobile-float-nav-link ">Note</a>
+                
+                    
+                    <a href="/about" class="mobile-float-nav-link ">About</a>
+                
+            </nav>
+        </div>
+    
+
     <!-- 脚本库 -->
     <script>
         // 1. Sidebar Toggle
@@ -523,6 +543,127 @@
                 if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
                     closeLightbox();
                 }
+            });
+        });
+
+        // 7. Mobile Floating Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            var floatNav = document.getElementById('mobileFloatNav');
+            var fab = document.getElementById('mobileNavFab');
+            var panel = document.getElementById('mobileFloatNavPanel');
+            if (!floatNav || !fab || !panel) return;
+
+            function isMobileViewport() {
+                return window.matchMedia('(max-width: 768px)').matches;
+            }
+
+            function openPanel() {
+                panel.classList.add('open');
+                fab.classList.add('is-open');
+            }
+
+            function closePanel() {
+                panel.classList.remove('open');
+                fab.classList.remove('is-open');
+            }
+
+            function clampPosition(x, y) {
+                var rect = floatNav.getBoundingClientRect();
+                var maxX = window.innerWidth - rect.width - 8;
+                var maxY = window.innerHeight - rect.height - 8;
+                return {
+                    x: Math.min(Math.max(8, x), Math.max(8, maxX)),
+                    y: Math.min(Math.max(8, y), Math.max(8, maxY))
+                };
+            }
+
+            function setPosition(x, y) {
+                var p = clampPosition(x, y);
+                floatNav.style.left = p.x + 'px';
+                floatNav.style.top = p.y + 'px';
+                floatNav.style.right = 'auto';
+                floatNav.style.bottom = 'auto';
+            }
+
+            function resetPositionForDesktop() {
+                if (!isMobileViewport()) {
+                    floatNav.style.left = '';
+                    floatNav.style.top = '';
+                    floatNav.style.right = '';
+                    floatNav.style.bottom = '';
+                    closePanel();
+                }
+            }
+
+            var pointerId = null;
+            var dragging = false;
+            var moved = false;
+            var startX = 0;
+            var startY = 0;
+            var originX = 0;
+            var originY = 0;
+
+            fab.addEventListener('pointerdown', function(e) {
+                if (!isMobileViewport()) return;
+                pointerId = e.pointerId;
+                dragging = true;
+                moved = false;
+                startX = e.clientX;
+                startY = e.clientY;
+                var rect = floatNav.getBoundingClientRect();
+                originX = rect.left;
+                originY = rect.top;
+                fab.setPointerCapture(pointerId);
+            });
+
+            fab.addEventListener('pointermove', function(e) {
+                if (!dragging || e.pointerId !== pointerId) return;
+                var dx = e.clientX - startX;
+                var dy = e.clientY - startY;
+                if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+                setPosition(originX + dx, originY + dy);
+            });
+
+            fab.addEventListener('pointerup', function(e) {
+                if (e.pointerId !== pointerId) return;
+                if (dragging) {
+                    dragging = false;
+                    fab.releasePointerCapture(pointerId);
+                }
+            });
+
+            fab.addEventListener('pointercancel', function(e) {
+                if (e.pointerId !== pointerId) return;
+                dragging = false;
+            });
+
+            fab.addEventListener('click', function(e) {
+                if (!isMobileViewport()) return;
+                if (moved) {
+                    e.preventDefault();
+                    moved = false;
+                    return;
+                }
+                if (panel.classList.contains('open')) closePanel();
+                else openPanel();
+            });
+
+            panel.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', closePanel);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!isMobileViewport()) return;
+                if (!floatNav.contains(e.target)) closePanel();
+            });
+
+            window.addEventListener('resize', function() {
+                if (!isMobileViewport()) {
+                    resetPositionForDesktop();
+                    return;
+                }
+                var rect = floatNav.getBoundingClientRect();
+                setPosition(rect.left, rect.top);
             });
         });
     </script>
