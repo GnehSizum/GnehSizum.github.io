@@ -1,0 +1,27 @@
+/* source/css/modules/variables.css */
+:root {
+    --bg-page: #f3f3f3;
+    /* 统一的云母材质底色 */
+    --bg-mica: rgba(255, 255, 255, 0.5); 
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --text-main: #1a1a1a;
+    --text-meta: #5d5d5d;
+    --accent: #0067c0;
+    --accent-dark: #004578;
+    --border-line: rgba(0, 0, 0, 0.08);
+    
+    --radius: 10px;
+    --radius-inner: 4px;
+    --shadow-win: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    --font-serif: "Times New Roman", "Nimrod", "Songti SC", "Noto Serif SC", "SimSun", serif;
+    --font-sans: "Segoe UI Variable Text", "Microsoft YaHei", sans-serif;
+    
+    --blur-val: 20px;
+    --saturate-val: 180%;
+
+    --sidebar-width: 220px;
+    --toc-width: 220px;
+    --max-width: 1280px;
+    --gap: 20px;
+}

@@ -1,0 +1,803 @@
+<!-- layout/layout.ejs -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Mu Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div class="watermark-bg"></div>
+
+    
+
+    <div class="layout-container ">
+        
+        <!-- === 1. 左侧区域 === -->
+        <div class="left-column">
+            <aside class="sidebar-card user-card collapsed" id="userSidebar">
+                <div class="card-toggle-btn" id="sidebarToggle" title="Toggle Info">
+                    <span class="toggle-arrow"></span>
+                </div>
+                <div class="sidebar-inner">
+                    <div class="author-area">
+                        <img class="avatar" src="/images/head.jpg" alt="avatar">
+                        <h3 class="author-name">GnehSizum</h3>
+                        <p class="author-desc">One today is worth two tomorrows.</p>
+                    </div>
+                    <nav class="sidebar-nav">
+                        
+                            
+                                
+                                <a href="/" class="nav-link ">Home</a>
+                            
+                                
+                                <a href="/blog" class="nav-link active">Blog</a>
+                            
+                                
+                                <a href="/note" class="nav-link ">Note</a>
+                            
+                                
+                                <a href="/about" class="nav-link ">About</a>
+                            
+                        
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- 左下侧边栏：Blog/Note 模式下显示目录/最近文章 -->
+            
+                <aside class="sidebar-card extra-card">
+                    <div class="extra-inner">
+                        
+                            <h4 class="extra-title">Recent Blogs</h4>
+                            <ul class="extra-list">
+                                
+                                    <li><a href="/2023/02/04/blog/20230204_qv2ray_install/"><span class="list-title">在 Ubuntu 安装 Qv2ray</span><span class="list-date">02.04</span></a></li>
+                                
+                                    <li><a href="/2023/01/09/blog/20230109_legion_keyboard/"><span class="list-title">联想小新 Pro 14 在 Ubuntu 中键盘失效的问题修复</span><span class="list-date">01.09</span></a></li>
+                                
+                                    <li><a href="/2022/12/12/blog/20221212_appimage_desktop/"><span class="list-title">关于我想在侧边栏打开 AppImage 这件事</span><span class="list-date">12.12</span></a></li>
+                                
+                                    <li><a href="/1970/01/01/blog/19700101_hello_world/"><span class="list-title">Hello World</span><span class="list-date">01.01</span></a></li>
+                                
+                            </ul>
+                        
+                    </div>
+                </aside>
+            
+        </div>
+
+        <!-- === 2. 中间主内容区 === -->
+        <main class="paper-main">
+            
+            <!-- Header: 动态 Tabs 区域 -->
+            <header class="paper-header">
+                <!-- 左侧：选项卡 -->
+                <div class="header-tabs">
+                    
+                        <button class="header-tab-btn active" onclick="switchTab('tab-posts')">Articles</button>
+                        <button class="header-tab-btn" onclick="switchTab('tab-tags')">Tags</button>
+                    
+                    
+                </div>
+
+                <!-- 右侧：文字 (Mu Blog / Blog / Note / About) -->
+                <div class="header-right-title">
+                    Blog
+                </div>
+            </header>
+
+            <div class="paper-content">
+                <!-- layout/index.ejs -->
+<div class="home-container">
+    
+    <!-- Tab 1: Articles (当前文章列表) -->
+    <div id="tab-posts" class="tab-content-item active">
+        <div class="post-list">
+            
+                
+                    
+                    
+                    <!-- data-tags 用于 JS 筛选 -->
+                    <article class="post-item post-card" data-type="Note" data-tags="SLAM">
+                        <div class="card-header">
+                            <span class="card-date">2026.04.05</span>
+                        </div>
+                        <h2 class="post-title">
+                            <a href="/2026/04/05/note/vslam14/vslam_04/">第4讲 李群与李代数</a>
+                        </h2>
+                        <div class="post-excerpt">
+                            <p>
+                                
+                                4.1 概述
+4.1.1 目标
+上一讲介绍了旋转矩阵、欧拉角、四元数、旋转向量等表示方法，但在 SLAM
+里，仅仅“能表...
+                            </p>
+                        </div>
+                        
+                            <div class="card-tags">
+                                
+                                    <a href="/tags/SLAM/" class="card-tag-item"># SLAM</a>
+                                
+                            </div>
+                        
+                        <div class="post-action">
+                            <a class="read-more-btn" href="/2026/04/05/note/vslam14/vslam_04/">
+                                <span>Read more</span><span class="arrow">></span>
+                            </a>
+                        </div>
+                    </article>
+                
+                    
+                    
+                    <!-- data-tags 用于 JS 筛选 -->
+                    <article class="post-item post-card" data-type="Note" data-tags="SLAM">
+                        <div class="card-header">
+                            <span class="card-date">2026.01.02</span>
+                        </div>
+                        <h2 class="post-title">
+                            <a href="/2026/01/02/note/vslam14/vslam_03/">第3讲 三维空间刚体运动</a>
+                        </h2>
+                        <div class="post-excerpt">
+                            <p>
+                                
+                                3.1 理论基础
+刚体运动由旋转（Rotation）和平移（Translation）组成。
+3.1.1 基础向量运算
+
+...
+                            </p>
+                        </div>
+                        
+                            <div class="card-tags">
+                                
+                                    <a href="/tags/SLAM/" class="card-tag-item"># SLAM</a>
+                                
+                            </div>
+                        
+                        <div class="post-action">
+                            <a class="read-more-btn" href="/2026/01/02/note/vslam14/vslam_03/">
+                                <span>Read more</span><span class="arrow">></span>
+                            </a>
+                        </div>
+                    </article>
+                
+                
+                <nav class="pagination-classic">
+                    <span class="page-number current">1</span>
+                </nav>
+            
+        </div>
+    </div>
+
+    <!-- Tab 2: Tags (标签面板) -->
+    <div id="tab-tags" class="tab-content-item">
+        
+        <section class="win11-tag-panel">
+            <div class="win11-panel-header">
+                <h3 class="win11-panel-title">Tag Hub</h3>
+                <p class="win11-panel-subtitle">点击标签可直接筛选上方文章列表</p>
+            </div>
+
+            <div class="win11-tag-stats">
+                <article class="win11-mini-tile">
+                    <span class="tile-label">Total Tags</span>
+                    <strong class="tile-value">3</strong>
+                </article>
+                <article class="win11-mini-tile">
+                    <span class="tile-label">Tagged Articles</span>
+                    <strong class="tile-value">6</strong>
+                </article>
+                <article class="win11-mini-tile">
+                    <span class="tile-label">Top Tag</span>
+                    <strong class="tile-value tile-value-sm">#Ubuntu · 3</strong>
+                </article>
+            </div>
+
+            <div class="win11-tag-cloud">
+                <button type="button" class="filter-tag-chip is-active" data-tag="all" onclick="filterByTag('all')">
+                    <span class="chip-name">ALL</span>
+                    <span class="chip-count">6</span>
+                </button>
+                
+                    <button
+                        type="button"
+                        class="filter-tag-chip"
+                        data-tag="Ubuntu"
+                        onclick="filterByTag(decodeURIComponent('Ubuntu'))"
+                    >
+                        <span class="chip-name">#Ubuntu</span>
+                        <span class="chip-count">3</span>
+                    </button>
+                
+                    <button
+                        type="button"
+                        class="filter-tag-chip"
+                        data-tag="SLAM"
+                        onclick="filterByTag(decodeURIComponent('SLAM'))"
+                    >
+                        <span class="chip-name">#SLAM</span>
+                        <span class="chip-count">2</span>
+                    </button>
+                
+                    <button
+                        type="button"
+                        class="filter-tag-chip"
+                        data-tag="Hexo"
+                        onclick="filterByTag(decodeURIComponent('Hexo'))"
+                    >
+                        <span class="chip-name">#Hexo</span>
+                        <span class="chip-count">1</span>
+                    </button>
+                
+            </div>
+        </section>
+    </div>
+
+    <!-- Tab 3: Archives (Win11 竖向时间线) -->
+    <div id="tab-archives" class="tab-content-item">
+        
+
+        <section class="win11-archive-panel">
+            <div class="win11-panel-header">
+                <h3 class="win11-panel-title">Archive Timeline</h3>
+                <p class="win11-panel-subtitle">按时间顺序查看文章，支持按类型快速筛选</p>
+            </div>
+
+            <div class="archive-filter-switch" role="group" aria-label="Archive Type Filter">
+                <button type="button" class="archive-filter-chip is-active" data-type="all" onclick="filterArchiveType('all')">All <span>6</span></button>
+                <button type="button" class="archive-filter-chip" data-type="Blog" onclick="filterArchiveType('Blog')">Blog <span>4</span></button>
+                <button type="button" class="archive-filter-chip" data-type="Note" onclick="filterArchiveType('Note')">Note <span>2</span></button>
+            </div>
+
+            <div class="win11-archive-timeline">
+                
+                    
+                    
+                        
+
+                        
+                            <div class="timeline-year-anchor"><span>2026</span></div>
+                            
+                        
+
+                        <article class="timeline-item" data-archive-type="Note">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date">04.05</span>
+                                <span class="timeline-clock">19:24</span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="/2026/04/05/note/vslam14/vslam_04/">第4讲 李群与李代数</a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type">Note</span>
+                                </div>
+                            </div>
+                        </article>
+                    
+                        
+
+                        
+
+                        <article class="timeline-item" data-archive-type="Note">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date">01.02</span>
+                                <span class="timeline-clock">10:00</span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="/2026/01/02/note/vslam14/vslam_03/">第3讲 三维空间刚体运动</a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type">Note</span>
+                                </div>
+                            </div>
+                        </article>
+                    
+                        
+
+                        
+                            <div class="timeline-year-anchor"><span>2023</span></div>
+                            
+                        
+
+                        <article class="timeline-item" data-archive-type="Blog">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date">02.04</span>
+                                <span class="timeline-clock">10:00</span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="/2023/02/04/blog/20230204_qv2ray_install/">在 Ubuntu 安装 Qv2ray</a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type">Blog</span>
+                                </div>
+                            </div>
+                        </article>
+                    
+                        
+
+                        
+
+                        <article class="timeline-item" data-archive-type="Blog">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date">01.09</span>
+                                <span class="timeline-clock">10:00</span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="/2023/01/09/blog/20230109_legion_keyboard/">联想小新 Pro 14 在 Ubuntu 中键盘失效的问题修复</a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type">Blog</span>
+                                </div>
+                            </div>
+                        </article>
+                    
+                        
+
+                        
+                            <div class="timeline-year-anchor"><span>2022</span></div>
+                            
+                        
+
+                        <article class="timeline-item" data-archive-type="Blog">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date">12.12</span>
+                                <span class="timeline-clock">10:00</span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="/2022/12/12/blog/20221212_appimage_desktop/">关于我想在侧边栏打开 AppImage 这件事</a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type">Blog</span>
+                                </div>
+                            </div>
+                        </article>
+                    
+                        
+
+                        
+                            <div class="timeline-year-anchor"><span>1970</span></div>
+                            
+                        
+
+                        <article class="timeline-item" data-archive-type="Blog">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date">01.01</span>
+                                <span class="timeline-clock">10:00</span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="/1970/01/01/blog/19700101_hello_world/">Hello World</a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type">Blog</span>
+                                </div>
+                            </div>
+                        </article>
+                    
+                
+            </div>
+        </section>
+    </div>
+
+</div>
+
+            </div>
+
+            <footer class="paper-footer">
+                <p>&copy; 2026 GnehSizum. Powered by <span style="color:#b7b7b7;"><a href="https://hexo.io/" target="_blank">Hexo</a></span>.</p>
+                <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+            </footer>
+        </main>
+
+        <!-- === 3. 右侧区域 === -->
+        
+    </div>
+
+    
+        <div class="mobile-float-nav" id="mobileFloatNav" aria-hidden="true">
+            <button type="button" class="mobile-nav-fab" id="mobileNavFab" aria-label="打开站点导航">Menu</button>
+            <nav class="mobile-float-nav-panel" id="mobileFloatNavPanel" aria-label="移动端导航">
+                
+                    
+                    <a href="/" class="mobile-float-nav-link ">Home</a>
+                
+                    
+                    <a href="/blog" class="mobile-float-nav-link active">Blog</a>
+                
+                    
+                    <a href="/note" class="mobile-float-nav-link ">Note</a>
+                
+                    
+                    <a href="/about" class="mobile-float-nav-link ">About</a>
+                
+            </nav>
+        </div>
+    
+
+    <!-- 脚本库 -->
+    <script>
+        // 1. Sidebar Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleBtn = document.getElementById('sidebarToggle');
+            var sidebar = document.getElementById('userSidebar');
+            if(toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('collapsed');
+                    sidebar.classList.toggle('expanded');
+                });
+            }
+        });
+
+        // 2. Tab Switching Logic (Global)
+        window.switchTab = function(tabId) {
+            // 切换按钮状态
+            const buttons = document.querySelectorAll('.header-tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // 切换内容显示
+            const items = document.querySelectorAll('.tab-content-item');
+            items.forEach(item => item.classList.remove('active'));
+            
+            const target = document.getElementById(tabId);
+            if(target) target.classList.add('active');
+        }
+
+        // 3. Calendar & Run Days
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calendar
+            const date = new Date();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const calHeader = document.getElementById('calHeader');
+            const calDays = document.getElementById('calDays');
+            
+            if(calHeader && calDays) {
+                calHeader.innerText = monthNames[date.getMonth()] + " " + date.getFullYear();
+                
+                const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+                const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                
+                let html = '';
+                // Empty slots
+                for(let i=0; i<firstDay; i++) html += '<span class="cal-day empty"></span>';
+                // Days
+                for(let i=1; i<=daysInMonth; i++) {
+                    let className = 'cal-day';
+                    if(i === date.getDate()) className += ' today';
+                    html += `<span class="${className}">${i}</span>`;
+                }
+                calDays.innerHTML = html;
+            }
+
+            // Run Days (Change start date here)
+            const startDate = new Date("2022-11-11"); // 修改你的建站日期
+            const runDaysEl = document.getElementById('runDays');
+            if(runDaysEl) {
+                const diff = Math.floor((new Date() - startDate) / (1000 * 60 * 60 * 24));
+                runDaysEl.innerText = diff + " Days";
+            }
+        });
+
+        // 4. Tag Filtering Logic
+        window.filterByTag = function(tagName) {
+            // 切换到文章列表 Tab
+            const postsTabBtn = document.querySelector('button[onclick="switchTab(\'tab-posts\')"]');
+            if(postsTabBtn) postsTabBtn.click();
+
+            // 更新 Tag Chip 激活态
+            const chips = document.querySelectorAll('.filter-tag-chip');
+            chips.forEach(chip => {
+                const chipTag = chip.getAttribute('data-tag');
+                const isActive = (tagName === 'all' && chipTag === 'all') || chipTag === tagName;
+                chip.classList.toggle('is-active', isActive);
+            });
+
+            // 筛选文章
+            const cards = document.querySelectorAll('.post-card');
+            cards.forEach(card => {
+                const tags = card.getAttribute('data-tags') || '';
+                const tagList = tags ? tags.split(',').map(tag => tag.trim()) : [];
+                if(tagName === 'all' || tagList.includes(tagName)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // 5. Archive Type Filtering Logic
+        window.filterArchiveType = function(typeName) {
+            const chips = document.querySelectorAll('.archive-filter-chip');
+            chips.forEach(chip => {
+                const chipType = chip.getAttribute('data-type');
+                const isActive = (typeName === 'all' && chipType === 'all') || chipType === typeName;
+                chip.classList.toggle('is-active', isActive);
+            });
+
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                const itemType = item.getAttribute('data-archive-type');
+                const visible = typeName === 'all' || itemType === typeName;
+
+                if (visible) {
+                    const wasHidden = item.classList.contains('hidden');
+                    item.classList.remove('hidden');
+                    if (wasHidden) {
+                        item.classList.remove('entering');
+                        void item.offsetWidth;
+                        item.classList.add('entering');
+                    }
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('entering');
+                }
+            });
+
+            const yearAnchors = document.querySelectorAll('.timeline-year-anchor');
+            yearAnchors.forEach(anchor => {
+                let next = anchor.nextElementSibling;
+                let hasVisibleItem = false;
+                while (next && !next.classList.contains('timeline-year-anchor')) {
+                    if (next.classList.contains('timeline-item') && !next.classList.contains('hidden')) {
+                        hasVisibleItem = true;
+                        break;
+                    }
+                    next = next.nextElementSibling;
+                }
+                anchor.classList.toggle('hidden', !hasVisibleItem);
+            });
+        }
+
+        // 6. Moments Lightbox
+        document.addEventListener('DOMContentLoaded', function() {
+            var lightbox = document.getElementById('photoLightbox');
+            var lightboxImage = document.getElementById('photoLightboxImage');
+            var lightboxCaption = document.getElementById('photoLightboxCaption');
+            var closeBtn = document.getElementById('photoLightboxClose');
+
+            if (!lightbox || !lightboxImage || !lightboxCaption || !closeBtn) return;
+
+            if (lightbox.parentNode !== document.body) {
+                document.body.appendChild(lightbox);
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.setAttribute('src', '');
+                lightboxCaption.textContent = '';
+            }
+
+            document.addEventListener('click', function(event) {
+                var trigger = event.target.closest('.photo-zoom-trigger');
+                if (trigger) {
+                    var src = trigger.getAttribute('data-photo-src') || '';
+                    var caption = trigger.getAttribute('data-photo-caption') || '';
+                    if (!src) return;
+                    lightboxImage.setAttribute('src', src);
+                    lightboxCaption.textContent = caption;
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    return;
+                }
+
+                if (event.target.matches('[data-action="close-lightbox"]')) {
+                    closeLightbox();
+                }
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
+        });
+
+        // 7. Mobile Floating Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            var floatNav = document.getElementById('mobileFloatNav');
+            var fab = document.getElementById('mobileNavFab');
+            var panel = document.getElementById('mobileFloatNavPanel');
+            if (!floatNav || !fab || !panel) return;
+
+            function isMobileViewport() {
+                return window.matchMedia('(max-width: 768px)').matches;
+            }
+
+            function openPanel() {
+                panel.classList.add('open');
+                fab.classList.add('is-open');
+            }
+
+            function closePanel() {
+                panel.classList.remove('open');
+                fab.classList.remove('is-open');
+            }
+
+            function clampPosition(x, y) {
+                var rect = floatNav.getBoundingClientRect();
+                var maxX = window.innerWidth - rect.width - 8;
+                var maxY = window.innerHeight - rect.height - 8;
+                return {
+                    x: Math.min(Math.max(8, x), Math.max(8, maxX)),
+                    y: Math.min(Math.max(8, y), Math.max(8, maxY))
+                };
+            }
+
+            function setPosition(x, y) {
+                var p = clampPosition(x, y);
+                floatNav.style.left = p.x + 'px';
+                floatNav.style.top = p.y + 'px';
+                floatNav.style.right = 'auto';
+                floatNav.style.bottom = 'auto';
+            }
+
+            function resetPositionForDesktop() {
+                if (!isMobileViewport()) {
+                    floatNav.style.left = '';
+                    floatNav.style.top = '';
+                    floatNav.style.right = '';
+                    floatNav.style.bottom = '';
+                    closePanel();
+                }
+            }
+
+            var pointerId = null;
+            var dragging = false;
+            var moved = false;
+            var startX = 0;
+            var startY = 0;
+            var originX = 0;
+            var originY = 0;
+
+            fab.addEventListener('pointerdown', function(e) {
+                if (!isMobileViewport()) return;
+                pointerId = e.pointerId;
+                dragging = true;
+                moved = false;
+                startX = e.clientX;
+                startY = e.clientY;
+                var rect = floatNav.getBoundingClientRect();
+                originX = rect.left;
+                originY = rect.top;
+                fab.setPointerCapture(pointerId);
+            });
+
+            fab.addEventListener('pointermove', function(e) {
+                if (!dragging || e.pointerId !== pointerId) return;
+                var dx = e.clientX - startX;
+                var dy = e.clientY - startY;
+                if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+                setPosition(originX + dx, originY + dy);
+            });
+
+            fab.addEventListener('pointerup', function(e) {
+                if (e.pointerId !== pointerId) return;
+                if (dragging) {
+                    dragging = false;
+                    fab.releasePointerCapture(pointerId);
+                }
+            });
+
+            fab.addEventListener('pointercancel', function(e) {
+                if (e.pointerId !== pointerId) return;
+                dragging = false;
+            });
+
+            fab.addEventListener('click', function(e) {
+                if (!isMobileViewport()) return;
+                if (moved) {
+                    e.preventDefault();
+                    moved = false;
+                    return;
+                }
+                if (panel.classList.contains('open')) closePanel();
+                else openPanel();
+            });
+
+            panel.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', closePanel);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!isMobileViewport()) return;
+                if (!floatNav.contains(e.target)) closePanel();
+            });
+
+            window.addEventListener('resize', function() {
+                if (!isMobileViewport()) {
+                    resetPositionForDesktop();
+                    return;
+                }
+                var rect = floatNav.getBoundingClientRect();
+                setPosition(rect.left, rect.top);
+            });
+        });
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        tags: 'ams',
+        // 显式加载 boldsymbol 包，虽然 MathJax 3 默认通常包含，但为了保险
+        packages: {'[+]': ['boldsymbol']} 
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        // 忽略 hexo-filter-mathjax 保护起来的标签
+        ignoreHtmlClass: 'tex2jax_ignore'
+      },
+      loader: {
+        load: ['[tex]/boldsymbol'] 
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    function initCalendar() {
+        const date = new Date();
+        const calHeader = document.getElementById('calHeader');
+        const calDays = document.getElementById('calDays');
+        if(!calHeader || !calDays) return;
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        calHeader.innerText = monthNames[date.getMonth()] + " " + date.getFullYear();
+
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+        let html = '';
+        // 填充空白
+        for(let i=0; i<firstDay; i++) html += '<span class="cal-day empty"></span>';
+        // 填充日期
+        for(let i=1; i<=daysInMonth; i++) {
+            let isToday = (i === date.getDate()) ? 'today' : '';
+            html += `<span class="cal-day ${isToday}">${i}</span>`;
+        }
+        calDays.innerHTML = html;
+    }
+    document.addEventListener('DOMContentLoaded', initCalendar);
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const highlights = document.querySelectorAll('figure.highlight');
+        
+        highlights.forEach(block => {
+            // 创建复制按钮
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.type = 'button';
+            button.innerText = 'Copy';
+            
+            block.appendChild(button);
+
+            button.addEventListener('click', () => {
+                // 兼容性获取代码文本：优先寻找 pre，否则找 td.code
+                const codeElement = block.querySelector('.code pre') || block.querySelector('td.code');
+                const code = codeElement.innerText;
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerText = 'Copied!';
+                    button.classList.add('success');
+                    
+                    setTimeout(() => {
+                        button.innerText = 'Copy';
+                        button.classList.remove('success');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>

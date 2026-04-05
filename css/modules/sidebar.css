@@ -1,0 +1,437 @@
+/* source/css/modules/sidebar.css */
+
+/* --- 1. 通用侧边栏卡片 (Win11 Mica 材质) --- */
+.sidebar-card {
+    background: var(--bg-mica);
+    backdrop-filter: blur(var(--blur-val)) saturate(var(--saturate-val));
+    -webkit-backdrop-filter: blur(var(--blur-val)) saturate(var(--saturate-val));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-win);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--gap);
+}
+
+/* --- 2. 用户信息卡片 (User Card) --- */
+.user-card .sidebar-inner {
+    padding: 24px 16px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+/* 头像样式 */
+.avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover;
+}
+
+/* 名字与描述 */
+.author-name {
+    font-family: var(--font-serif); /* 关键点：姓名使用衬线体体现优雅 */
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.author-desc {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    color: var(--text-meta);
+    line-height: 1.5;
+    padding: 0 12px;
+    margin-bottom: 18px;
+}
+
+/* 导航链接 */
+.sidebar-nav {
+    border-top: 1px solid var(--border-line);
+    padding: 8px 0;
+    margin-top: 10px;
+}
+
+.nav-link {
+    display: block;
+    padding: 8px 16px;
+    margin: 2px 8px;
+    font-size: 13.5px;
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    border-radius: var(--radius-inner);
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
+}
+
+.nav-link.active {
+    background-color: rgba(0, 103, 192, 0.1);
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 4px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(0, 103, 192, 0.28);
+    animation: navPulse 2s ease-in-out infinite;
+}
+
+@keyframes navPulse {
+    0%,
+    100% {
+        opacity: 0.92;
+        box-shadow: 0 0 0 0 rgba(0, 103, 192, 0.18);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 0 5px rgba(0, 103, 192, 0.1);
+    }
+}
+
+/* --- 3. 折叠/展开交互逻辑 --- */
+
+/* 侧边栏折叠按钮 (修正位置与层级) */
+.card-toggle-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0);
+}
+
+.card-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.toggle-arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--text-meta);
+    border-bottom: 2px solid var(--text-meta);
+    transform: rotate(-45deg); /* 默认朝右的箭头图标 */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 折叠状态样式补全 */
+.user-card.collapsed .avatar {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 4px;
+}
+.user-card.collapsed .author-desc,
+.user-card.collapsed .sidebar-nav {
+    display: none;
+}
+.user-card.collapsed .author-name {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+.user-card.collapsed .toggle-arrow {
+    transform: rotate(45deg); /* 折叠时图标指向右下或右 */
+}
+
+/* --- 4. 扩展卡片 (Recent Blogs / Directory) --- */
+.extra-card {
+    padding: 20px 16px;
+}
+
+.extra-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-meta);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-line);
+}
+
+.extra-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.extra-list li {
+    margin-bottom: 10px;
+    border-radius: var(--radius-inner);
+    transition: background 0.2s;
+}
+
+.extra-list li:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.extra-list a {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 8px;
+    text-decoration: none;
+}
+
+.extra-list .list-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 限制标题最多显示两行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.extra-list .list-date {
+    font-size: 10.5px;
+    color: var(--text-meta);
+    margin-top: 4px;
+    font-family: var(--font-sans);
+}
+
+/* --- 5. Note 页面专用目录树 (Directory Tree) --- */
+.note-tree-container {
+    padding: 4px 8px;
+    font-family: var(--font-sans);
+}
+
+.note-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.note-folder {
+    margin-bottom: 6px;
+}
+
+.folder-label {
+    display: block;
+    color: var(--text-meta);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 8px 0 4px 10px;
+    letter-spacing: 0.5px;
+}
+
+.note-file {
+    margin: 1px 0;
+}
+
+.note-link {
+    display: block;
+    padding: 7px 12px;
+    font-size: 13px;
+    color: var(--text-main);
+    border-radius: var(--radius-inner);
+    transition: all 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-link:hover {
+    background-color: rgba(0, 103, 192, 0.06);
+    color: var(--accent);
+}
+
+/* 层级缩进控制 */
+.depth-1 { padding-left: 12px; border-left: 1px solid var(--border-line); margin-left: 4px; }
+.depth-2 { padding-left: 12px; border-left: 1px solid var(--border-line); margin-left: 4px; }
+.depth-3 { padding-left: 12px; border-left: 1px solid var(--border-line); margin-left: 4px; }
+
+.mobile-float-nav {
+    display: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .sidebar-card { width: 100%; margin-bottom: 12px; }
+    .card-toggle-btn { display: none; } /* 移动端通常不建议折叠侧边栏以保持导航直观 */
+    .user-card.collapsed .author-desc,
+    .user-card.collapsed .sidebar-nav {
+        display: block;
+    }
+
+    .user-card .sidebar-nav,
+    .user-card.collapsed .sidebar-nav,
+    .user-card.expanded .sidebar-nav {
+        display: none;
+    }
+
+    .user-card .sidebar-inner {
+        padding: 16px 12px;
+    }
+
+    .author-name {
+        font-size: 16px;
+    }
+
+    .author-desc {
+        padding: 0 4px;
+        margin-bottom: 12px;
+    }
+
+    .nav-link {
+        min-height: 38px;
+        line-height: 22px;
+        margin: 2px 4px;
+        padding: 8px 10px;
+    }
+
+    .extra-card {
+        padding: 14px 12px;
+    }
+
+    .note-link {
+        white-space: normal;
+        line-height: 1.4;
+    }
+
+    .mobile-float-nav {
+        display: block;
+        position: fixed;
+        right: 12px;
+        bottom: 84px;
+        z-index: 1200;
+    }
+
+    .mobile-nav-fab {
+        width: 54px;
+        height: 54px;
+        border: 1px solid rgba(0, 103, 192, 0.55);
+        border-radius: 16px;
+        background: linear-gradient(155deg, rgba(0, 120, 215, 0.94), rgba(0, 90, 178, 0.96));
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: var(--font-sans);
+        box-shadow: 0 10px 20px rgba(0, 92, 170, 0.3);
+        backdrop-filter: blur(10px) saturate(160%);
+        -webkit-backdrop-filter: blur(10px) saturate(160%);
+        cursor: grab;
+        touch-action: none;
+    }
+
+    .mobile-nav-fab:hover {
+        background: linear-gradient(155deg, rgba(0, 124, 224, 0.98), rgba(0, 96, 188, 1));
+    }
+
+    .mobile-nav-fab.is-open {
+        color: #ffffff;
+        border-color: rgba(0, 81, 160, 0.85);
+        box-shadow: 0 12px 24px rgba(0, 84, 156, 0.36);
+    }
+
+    .mobile-float-nav-panel {
+        position: absolute;
+        right: 0;
+        bottom: 62px;
+        min-width: 156px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+        backdrop-filter: blur(10px) saturate(150%);
+        -webkit-backdrop-filter: blur(10px) saturate(150%);
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+        pointer-events: none;
+        transition: all 0.18s ease;
+    }
+
+    .mobile-float-nav-panel.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    .mobile-float-nav-link {
+        display: block;
+        min-height: 40px;
+        line-height: 40px;
+        padding: 0 12px;
+        border-radius: 10px;
+        color: var(--text-main);
+        font-size: 13px;
+        font-weight: 600;
+        position: relative;
+        text-align: center;
+    }
+
+    .mobile-float-nav-link.active {
+        color: var(--accent);
+        background: rgba(0, 103, 192, 0.1);
+    }
+
+    .mobile-float-nav-link.active::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 8px;
+        bottom: 8px;
+        width: 3px;
+        border-radius: 999px;
+        background: var(--accent);
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar {
+        width: 64px;
+        height: 64px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    .nav-link.active::before {
+        left: 4px;
+        width: 3px;
+    }
+
+    .mobile-nav-fab {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        font-size: 11px;
+    }
+
+    .mobile-float-nav-panel {
+        min-width: 140px;
+        bottom: 58px;
+    }
+}
