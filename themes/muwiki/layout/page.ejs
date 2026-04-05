@@ -1,0 +1,111 @@
+<!-- layout/page.ejs -->
+<% if (page.list_type) { %>
+    
+    <% 
+        var targetType = (page.list_type || '').toLowerCase(); 
+        var displayType = targetType.charAt(0).toUpperCase() + targetType.slice(1);
+        
+        // 筛选出属于当前类型(Blog/Note)的所有文章
+        var allPostsArr = site.posts.toArray();
+        var filteredPosts = allPostsArr.filter(function(post){
+            var src = post.source.replace(/\\/g, '/').toLowerCase();
+            var searchStr = '_posts/' + targetType + '/';
+            return src.indexOf(searchStr) > -1;
+        });
+        filteredPosts.sort(function(a, b){ return b.date - a.date; });
+
+        // 获取当前列表下涉及的所有标签（去重）
+        var currentListTags = new Set();
+        filteredPosts.forEach(p => {
+            if(p.tags && p.tags.data) {
+                p.tags.data.forEach(t => currentListTags.add(t.name));
+            }
+        });
+        var currentListTagsArr = Array.from(currentListTags).sort(function(a, b){ return a.localeCompare(b); });
+    %>
+
+    <!-- Tab 1: Articles List -->
+    <div id="tab-posts" class="tab-content-item active">
+        <div class="post-list">
+            <% if (filteredPosts.length > 0) { %>
+                <% filteredPosts.forEach(function(post){ %>
+                    <% 
+                         var tagsArr = [];
+                         if(post.tags && post.tags.data) {
+                             post.tags.data.forEach(t => tagsArr.push(t.name));
+                         }
+                    %>
+                    <article class="post-item post-card" data-type="<%= displayType %>" data-tags="<%= tagsArr.join(',') %>">
+                        <div class="card-header">
+                            <span class="card-date"><%= post.date.format('YYYY.MM.DD') %></span>
+                        </div>
+                        <h2 class="post-title">
+                            <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                        </h2>
+                        <div class="post-excerpt">
+                            <p>
+                                <% 
+                                    var cleanContent = strip_html(post.excerpt || post.content);
+                                    var shortContent = cleanContent.substring(0, 60); 
+                                %>
+                                <%= shortContent %><%= shortContent.length < cleanContent.length ? '...' : '' %>
+                            </p>
+                        </div>
+                        <% if (post.tags && post.tags.length) { %>
+                            <div class="card-tags">
+                                <% post.tags.forEach(function(tag){ %>
+                                    <a href="<%= url_for(tag.path) %>" class="card-tag-item"># <%= tag.name %></a>
+                                <% }) %>
+                            </div>
+                        <% } %>
+                        <div class="post-action">
+                            <a class="read-more-btn" href="<%= url_for(post.path) %>">
+                                <span>Read more</span><span class="arrow">></span>
+                            </a>
+                        </div>
+                    </article>
+                <% }); %>
+            <% } else { %>
+                <div class="empty-page">No posts found</div>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Tab 2: Tags Filter -->
+    <div id="tab-tags" class="tab-content-item">
+        <div class="win11-tag-panel compact">
+            <div class="win11-panel-header">
+                <h3 class="win11-panel-title">Tag Filter</h3>
+                <p class="win11-panel-subtitle">仅筛选当前 <%= displayType %> 列表的文章</p>
+            </div>
+
+            <div class="win11-tag-cloud compact">
+                <button type="button" class="filter-tag-chip is-active" data-tag="all" onclick="filterByTag('all')">
+                    <span class="chip-name">ALL</span>
+                    <span class="chip-count"><%= filteredPosts.length %></span>
+                </button>
+                <% currentListTagsArr.forEach(function(tagName){ %>
+                    <button
+                        type="button"
+                        class="filter-tag-chip"
+                        data-tag="<%= tagName %>"
+                        onclick="filterByTag(decodeURIComponent('<%= encodeURIComponent(tagName) %>'))"
+                    >
+                        <span class="chip-name">#<%= tagName %></span>
+                    </button>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+<% } else { %>
+    <!-- 普通 Page 保持不变 -->
+    <article class="post-detail page-type-common">
+        <header class="post-header">
+            <h1 class="post-title"><%= page.title %></h1>
+        </header>
+        <div class="post-body">
+            <%- page.content %>
+        </div>
+    </article>
+<% } %>

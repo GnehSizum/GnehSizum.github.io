@@ -1,0 +1,14 @@
+# muwiki theme config
+sidebar:
+  avatar: /images/head.jpg
+  name: GnehSizum
+  description: One today is worth two tomorrows.
+  links:
+    - text: Home
+      url: /
+    - text: Blog
+      url: /blog
+    - text: Note
+      url: /note
+    - text: About
+      url: /about

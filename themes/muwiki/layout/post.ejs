@@ -1,0 +1,39 @@
+<!-- layout/post.ejs -->
+<article class="post-detail">
+    <header class="post-header">
+        <h1 class="post-title"><%= page.title %></h1>
+        <div class="post-meta">
+            <!-- 移除了作者，仅保留时间 -->
+            <time class="meta-item"><%= date(page.date, 'YYYY年MM月DD日') %></time>
+            
+            <% if (page.categories && page.categories.length) { %>
+                <span class="meta-dot">·</span>
+                <span class="meta-item"><%= page.categories.data[0].name %></span>
+            <% } %>
+        </div>
+    </header>
+
+    <div class="post-body">
+        <%- page.content %>
+    </div>
+
+    <!-- 移除了 <div class="post-end-mark">...</div> -->
+    
+    <!-- 标签区域 -->
+    <% if(page.tags && page.tags.length) { %>
+        <div class="post-tags">
+             <% page.tags.forEach(function(tag){ %>
+                <a href="<%= url_for(tag.path) %>"># <%= tag.name %></a>
+             <% }) %>
+        </div>
+    <% } %>
+
+    <!-- 新增：优雅的版权声明卡片 -->
+    <div class="post-copyright">
+        <div class="copyright-inner">
+            <p><strong>本文作者：</strong> <%= page.author || config.author %></p>
+            <p><strong>本文链接：</strong> <a href="<%= page.permalink %>"><%= page.permalink %></a></p>
+            <p><strong>版权声明：</strong> 本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+        </div>
+    </div>
+</article>

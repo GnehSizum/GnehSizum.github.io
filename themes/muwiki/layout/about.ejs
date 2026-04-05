@@ -1,0 +1,153 @@
+<!-- layout/about.ejs -->
+<%
+    var introText = page.intro || '这个人太懒了，没有留下介绍。';
+    var skillList = (page.skills && page.skills.length) ? page.skills : [
+        'ROS/ROS2', 'SLAM', 'Navigation', 'CV', 'Qt', 'Unity', 'Android',
+        'C/C++', 'Python', 'Java', 'Go', 'JavaScript', 'Typescript'
+    ];
+    var contactList = (page.contacts && page.contacts.length) ? page.contacts : [
+        { label: 'QQ', value: '284782399' },
+        { label: 'Email', value: 'muzs@foxmail.com' },
+        { label: 'GitHub', value: 'GnehSizum', link: 'https://github.com/GnehSizum' }
+    ];
+    var friendsList = (page.friends && page.friends.length) ? page.friends : [];
+    var galleryList = (page.gallery && page.gallery.length) ? page.gallery : [];
+%>
+
+<div class="about-shell">
+    <section class="about-hero-card">
+        <div class="about-hero-main">
+            <img class="about-avatar" src="<%= url_for(theme.sidebar.avatar || '/images/avatar.svg') %>" alt="avatar">
+            <div class="about-hero-text">
+                <h2 class="about-name"><%= config.author %></h2>
+                <p class="about-slogan"><%= theme.sidebar.description %></p>
+                <div class="about-meta-chips">
+                    <% if (page.profession) { %>
+                        <span class="about-meta-chip">Profession · <%= page.profession %></span>
+                    <% } %>
+                    <% if (page.location) { %>
+                        <span class="about-meta-chip">Location · <%= page.location %></span>
+                    <% } %>
+                    <!-- <span class="about-meta-chip">Friends · <%= friendsList.length %></span>
+                    <span class="about-meta-chip">Moments · <%= galleryList.length %></span> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-tabs-content">
+        <section id="tab-about" class="tab-content-item active">
+            <div class="about-grid">
+                <article class="about-card about-intro-card">
+                    <h3 class="about-card-title">Hello</h3>
+                    <p class="about-intro-text"><%= introText %></p>
+                    <div class="about-note-block">
+                        <span class="note-dot"></span>
+                        <p>
+                            一人说，将来胜过现在。<br>
+                            一人说，现在远不及从前。<br>
+                            一人说，什么?<br>
+                            时道，你们都侮辱我的现在。<br>
+                            从前好的，自己回去。<br>
+                            将来好的，跟我前去。<br>
+                            这说什么的，<br>
+                            我不和你说什么。<br>
+                            —— 鲁迅
+                        </p>
+                    </div>
+                </article>
+
+                <article class="about-card about-skill-card">
+                    <h3 class="about-card-title">Skills</h3>
+                    <div class="skill-tags">
+                        <% skillList.forEach(function(skill){ %>
+                            <span class="skill-item"><%= skill %></span>
+                        <% }) %>
+                    </div>
+                </article>
+
+                <article class="about-card about-contact-card">
+                    <h3 class="about-card-title">Connect</h3>
+                    <ul class="about-contact-list">
+                        <% contactList.forEach(function(contact){ %>
+                            <li class="contact-row">
+                                <span class="contact-label"><%= contact.label %></span>
+                                <span class="contact-value">
+                                    <% if (contact.link) { %>
+                                        <a href="<%= contact.link %>" target="_blank" rel="noopener"><%= contact.value %></a>
+                                    <% } else { %>
+                                        <%= contact.value %>
+                                    <% } %>
+                                </span>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="tab-friends" class="tab-content-item">
+            <div class="about-section-head">
+                <h3 class="about-section-title">Friends</h3>
+                <span class="about-section-subtitle">共 <%= friendsList.length %> 位伙伴</span>
+            </div>
+
+            <% if (friendsList.length) { %>
+                <div class="friends-grid">
+                    <% friendsList.forEach(function(friend){ %>
+                        <a href="<%= friend.url %>" target="_blank" rel="noopener" class="friend-card">
+                            <div class="friend-avatar">
+                                <img src="<%= friend.avatar %>" alt="<%= friend.name %>">
+                            </div>
+                            <div class="friend-info">
+                                <h4 class="friend-name"><%= friend.name %></h4>
+                                <p class="friend-desc"><%= friend.desc || 'No description' %></p>
+                            </div>
+                        </a>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <div class="about-empty-state">还没有添加友链。</div>
+            <% } %>
+        </section>
+
+        <section id="tab-gallery" class="tab-content-item">
+            <div class="about-section-head">
+                <h3 class="about-section-title">Moments</h3>
+                <span class="about-section-subtitle">共 <%= galleryList.length %> 张照片</span>
+            </div>
+
+            <% if (galleryList.length) { %>
+                <div class="gallery-grid">
+                    <% galleryList.forEach(function(photo){ %>
+                        <figure class="photo-item">
+                            <button
+                                type="button"
+                                class="photo-zoom-trigger"
+                                data-photo-src="<%= photo.src %>"
+                                data-photo-caption="<%= photo.caption || '' %>"
+                                aria-label="查看大图"
+                            >
+                                <img src="<%= photo.src %>" alt="<%= photo.caption || 'photo' %>">
+                            </button>
+                            <% if (photo.caption) { %>
+                                <figcaption class="photo-caption"><%= photo.caption %></figcaption>
+                            <% } %>
+                        </figure>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <div class="about-empty-state">还没有发布 Moments 内容。</div>
+            <% } %>
+        </section>
+    </div>
+
+    <div id="photoLightbox" class="photo-lightbox" aria-hidden="true">
+        <div class="photo-lightbox-backdrop" data-action="close-lightbox"></div>
+        <div class="photo-lightbox-dialog" role="dialog" aria-modal="true" aria-label="照片预览">
+            <button type="button" class="photo-lightbox-close" id="photoLightboxClose" aria-label="关闭预览">Close</button>
+            <img id="photoLightboxImage" class="photo-lightbox-image" src="" alt="preview">
+            <p id="photoLightboxCaption" class="photo-lightbox-caption"></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,173 @@
+<!-- layout/index.ejs -->
+<div class="home-container">
+    
+    <!-- Tab 1: Articles (当前文章列表) -->
+    <div id="tab-posts" class="tab-content-item active">
+        <div class="post-list">
+            <% if (page.posts && page.posts.length) { %>
+                <% page.posts.each(function(post){ %>
+                    <% 
+                        // 获取 Blog/Note 标签
+                        var src = post.source.replace(/\\/g, '/');
+                        var typeLabel = '';
+                        if (src.indexOf('_posts/blog/') > -1) typeLabel = 'Blog';
+                        else if (src.indexOf('_posts/note/') > -1) typeLabel = 'Note';
+                        
+                        // 获取文章的所有 Tags 用于筛选
+                        var tagsArr = [];
+                        if(post.tags && post.tags.length) {
+                            post.tags.forEach(t => tagsArr.push(t.name));
+                        }
+                    %>
+                    
+                    <!-- data-tags 用于 JS 筛选 -->
+                    <article class="post-item post-card" data-type="<%= typeLabel %>" data-tags="<%= tagsArr.join(',') %>">
+                        <div class="card-header">
+                            <span class="card-date"><%= post.date.format('YYYY.MM.DD') %></span>
+                        </div>
+                        <h2 class="post-title">
+                            <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                        </h2>
+                        <div class="post-excerpt">
+                            <p>
+                                <% 
+                                    var cleanContent = strip_html(post.excerpt || post.content);
+                                    var shortContent = cleanContent.substring(0, 60); 
+                                %>
+                                <%= shortContent %><%= shortContent.length < cleanContent.length ? '...' : '' %>
+                            </p>
+                        </div>
+                        <% if (post.tags && post.tags.length) { %>
+                            <div class="card-tags">
+                                <% post.tags.forEach(function(tag){ %>
+                                    <a href="<%= url_for(tag.path) %>" class="card-tag-item"># <%= tag.name %></a>
+                                <% }) %>
+                            </div>
+                        <% } %>
+                        <div class="post-action">
+                            <a class="read-more-btn" href="<%= url_for(post.path) %>">
+                                <span>Read more</span><span class="arrow">></span>
+                            </a>
+                        </div>
+                    </article>
+                <% }); %>
+                
+                <nav class="pagination-classic">
+                    <%- paginator({prev_text: '« Prev', next_text: 'Next »'}) %>
+                </nav>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Tab 2: Tags (标签面板) -->
+    <div id="tab-tags" class="tab-content-item">
+        <%
+            var sortedTags = site.tags.sort('length', -1).toArray();
+            var topTagName = sortedTags.length ? sortedTags[0].name : '-';
+            var topTagCount = sortedTags.length ? sortedTags[0].length : 0;
+        %>
+        <section class="win11-tag-panel">
+            <div class="win11-panel-header">
+                <h3 class="win11-panel-title">Tag Hub</h3>
+                <p class="win11-panel-subtitle">点击标签可直接筛选上方文章列表</p>
+            </div>
+
+            <div class="win11-tag-stats">
+                <article class="win11-mini-tile">
+                    <span class="tile-label">Total Tags</span>
+                    <strong class="tile-value"><%= site.tags.length %></strong>
+                </article>
+                <article class="win11-mini-tile">
+                    <span class="tile-label">Tagged Articles</span>
+                    <strong class="tile-value"><%= site.posts.length %></strong>
+                </article>
+                <article class="win11-mini-tile">
+                    <span class="tile-label">Top Tag</span>
+                    <strong class="tile-value tile-value-sm">#<%= topTagName %> · <%= topTagCount %></strong>
+                </article>
+            </div>
+
+            <div class="win11-tag-cloud">
+                <button type="button" class="filter-tag-chip is-active" data-tag="all" onclick="filterByTag('all')">
+                    <span class="chip-name">ALL</span>
+                    <span class="chip-count"><%= site.posts.length %></span>
+                </button>
+                <% sortedTags.forEach(function(tag){ %>
+                    <button
+                        type="button"
+                        class="filter-tag-chip"
+                        data-tag="<%= tag.name %>"
+                        onclick="filterByTag(decodeURIComponent('<%= encodeURIComponent(tag.name) %>'))"
+                    >
+                        <span class="chip-name">#<%= tag.name %></span>
+                        <span class="chip-count"><%= tag.length %></span>
+                    </button>
+                <% }) %>
+            </div>
+        </section>
+    </div>
+
+    <!-- Tab 3: Archives (Win11 竖向时间线) -->
+    <div id="tab-archives" class="tab-content-item">
+        <% 
+            var timelinePosts = site.posts.sort('date', -1).toArray();
+            var blogCount = 0;
+            var noteCount = 0;
+            timelinePosts.forEach(function(post){
+                var srcType = post.source.replace(/\\/g, '/');
+                if (srcType.indexOf('_posts/note/') > -1) noteCount += 1;
+                else blogCount += 1;
+            });
+        %>
+
+        <section class="win11-archive-panel">
+            <div class="win11-panel-header">
+                <h3 class="win11-panel-title">Archive Timeline</h3>
+                <p class="win11-panel-subtitle">按时间顺序查看文章，支持按类型快速筛选</p>
+            </div>
+
+            <div class="archive-filter-switch" role="group" aria-label="Archive Type Filter">
+                <button type="button" class="archive-filter-chip is-active" data-type="all" onclick="filterArchiveType('all')">All <span><%= timelinePosts.length %></span></button>
+                <button type="button" class="archive-filter-chip" data-type="Blog" onclick="filterArchiveType('Blog')">Blog <span><%= blogCount %></span></button>
+                <button type="button" class="archive-filter-chip" data-type="Note" onclick="filterArchiveType('Note')">Note <span><%= noteCount %></span></button>
+            </div>
+
+            <div class="win11-archive-timeline">
+                <% if (timelinePosts.length) { %>
+                    <% var currentYear = ''; %>
+                    <% timelinePosts.forEach(function(post){ %>
+                        <%
+                            var postYear = post.date.format('YYYY');
+                            var postMonthDay = post.date.format('MM.DD');
+                            var postClock = post.date.format('HH:mm');
+                            var src = post.source.replace(/\\/g, '/');
+                            var postType = src.indexOf('_posts/note/') > -1 ? 'Note' : 'Blog';
+                        %>
+
+                        <% if (postYear !== currentYear) { %>
+                            <div class="timeline-year-anchor"><span><%= postYear %></span></div>
+                            <% currentYear = postYear; %>
+                        <% } %>
+
+                        <article class="timeline-item" data-archive-type="<%= postType %>">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-time">
+                                <span class="timeline-date"><%= postMonthDay %></span>
+                                <span class="timeline-clock"><%= postClock %></span>
+                            </div>
+                            <div class="timeline-card">
+                                <a class="timeline-title" href="<%= url_for(post.path) %>"><%= post.title %></a>
+                                <div class="timeline-meta">
+                                    <span class="timeline-type"><%= postType %></span>
+                                </div>
+                            </div>
+                        </article>
+                    <% }) %>
+                <% } else { %>
+                    <p class="timeline-empty">暂无归档文章</p>
+                <% } %>
+            </div>
+        </section>
+    </div>
+
+</div>
