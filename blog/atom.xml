@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://gnehsizum.github.io/blog/</id>
+    <title>Mu Blog Blog</title>
+    <updated>2023-02-04T02:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://gnehsizum.github.io/blog/"/>
+    <subtitle>Mu Blog Blog</subtitle>
+    <icon>https://gnehsizum.github.io/images/head.jpg</icon>
+    <entry>
+        <title type="html"><![CDATA[在 Ubuntu 安装 Qv2ray]]></title>
+        <id>https://gnehsizum.github.io/blog/2023/02/04/qv2ray-install/</id>
+        <link href="https://gnehsizum.github.io/blog/2023/02/04/qv2ray-install/"/>
+        <updated>2023-02-04T02:00:00.000Z</updated>
+        <summary type="html"><![CDATA[在 Ubuntu 中安装 Qv2ray，配置 v2ray-core，并创建便于启动的桌面入口。]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-下载-qv2rayappimage">1. 下载 Qv2ray.AppImage<a href="https://gnehsizum.github.io/blog/2023/02/04/qv2ray-install/#1-%E4%B8%8B%E8%BD%BD-qv2rayappimage" class="hash-link" aria-label="1. 下载 Qv2ray.AppImage的直接链接" title="1. 下载 Qv2ray.AppImage的直接链接" translate="no">​</a></h2>
+<p>下载地址：<a href="https://github.com/Qv2ray/Qv2ray/releases/tag/v2.7.0" target="_blank" rel="noopener noreferrer" class="">https://github.com/Qv2ray/Qv2ray/releases/tag/v2.7.0</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-下载-v2ray-core">2. 下载 v2ray-core<a href="https://gnehsizum.github.io/blog/2023/02/04/qv2ray-install/#2-%E4%B8%8B%E8%BD%BD-v2ray-core" class="hash-link" aria-label="2. 下载 v2ray-core的直接链接" title="2. 下载 v2ray-core的直接链接" translate="no">​</a></h2>
+<p>下载地址：<a href="https://github.com/v2fly/v2ray-core/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/v2fly/v2ray-core/releases</a></p>
+<p>下载 v4.45.2 版本并解压。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-配置-qv2ray">3. 配置 Qv2ray<a href="https://gnehsizum.github.io/blog/2023/02/04/qv2ray-install/#3-%E9%85%8D%E7%BD%AE-qv2ray" class="hash-link" aria-label="3. 配置 Qv2ray的直接链接" title="3. 配置 Qv2ray的直接链接" translate="no">​</a></h2>
+<ul>
+<li class="">给 Qv2ray.AppImage 添加执行权限</li>
+<li class="">打开 Qv2ray.AppImage - 首选项 - 内核设置</li>
+<li class="">“V2Ray核心可执行文件路径”填写刚刚解压的目录中 v2ray 的路径</li>
+<li class="">“V2Ray资源目录”填写刚刚解压的目录的路径</li>
+<li class="">点击“检查V2Ray核心设置”，配置检查通过即可使用了</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-或许你想">4. 或许你想<a href="https://gnehsizum.github.io/blog/2023/02/04/qv2ray-install/#4-%E6%88%96%E8%AE%B8%E4%BD%A0%E6%83%B3" class="hash-link" aria-label="4. 或许你想的直接链接" title="4. 或许你想的直接链接" translate="no">​</a></h2>
+<p>根据 <a class="" href="https://gnehsizum.github.io/blog/2022/12/12/appimage-desktop/">“关于我想在侧边栏打开AppImage这件事”</a> 创建 Desktop 文件后打开就方便多了。</p>]]></content>
+        <author>
+            <name>GnehSizum</name>
+            <uri>https://github.com/GnehSizum</uri>
+        </author>
+        <category label="Ubuntu" term="Ubuntu"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[联想小新 Pro 14 在 Ubuntu 中键盘失效的问题修复]]></title>
+        <id>https://gnehsizum.github.io/blog/2023/01/09/legion-keyboard/</id>
+        <link href="https://gnehsizum.github.io/blog/2023/01/09/legion-keyboard/"/>
+        <updated>2023-01-09T02:00:00.000Z</updated>
+        <summary type="html"><![CDATA[联想小新 Pro 14 在 Ubuntu 下的键盘故障记录：尝试更新内核，最终通过调整 GRUB 参数解决。]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>特别鸣谢 cyy 学姐与 mj 学长的帮助。</p>
+</blockquote>
+<p>本文方法可能同样适用于 yoga 14s。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="方法1买个键盘外接使用">方法1：买个键盘外接使用<a href="https://gnehsizum.github.io/blog/2023/01/09/legion-keyboard/#%E6%96%B9%E6%B3%951%E4%B9%B0%E4%B8%AA%E9%94%AE%E7%9B%98%E5%A4%96%E6%8E%A5%E4%BD%BF%E7%94%A8" class="hash-link" aria-label="方法1：买个键盘外接使用的直接链接" title="方法1：买个键盘外接使用的直接链接" translate="no">​</a></h2>
+<p>在实际解决这个问题之前 我一直是用这个办法_(:з」∠)_</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="方法2更新内核">方法2：更新内核<a href="https://gnehsizum.github.io/blog/2023/01/09/legion-keyboard/#%E6%96%B9%E6%B3%952%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8" class="hash-link" aria-label="方法2：更新内核的直接链接" title="方法2：更新内核的直接链接" translate="no">​</a></h2>
+<p>一般情况下，更新内核可解决大部分问题。具体方法可自行上网查找教程，这里给出我的：</p>
+<p>检查内核版本：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">uname</span><span class="token plain"> </span><span class="token parameter variable" style="color:rgb(191, 199, 213)">-rs</span><br></div></code></pre></div></div>
+<p>下载 ubuntu-mainline-kernel 脚本：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">wget</span><span class="token plain"> https://raw.githubusercontent.com/pimlie/ubuntu-mainline-kernel.sh/master/ubuntu-mainline-kernel.sh</span><br></div></code></pre></div></div>
+<p>将脚本放在可执行路径中：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">sudo</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">install</span><span class="token plain"> ubuntu-mainline-kernel.sh /usr/local/bin/</span><br></div></code></pre></div></div>
+<p>检查最新的可用内核版本：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ubuntu-mainline-kernel.sh </span><span class="token parameter variable" style="color:rgb(191, 199, 213)">-c</span><br></div></code></pre></div></div>
+<p>获得最新版本并确认这就是你想要安装在系统上的版本后，运行：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">sudo</span><span class="token plain"> ubuntu-mainline-kernel.sh </span><span class="token parameter variable" style="color:rgb(191, 199, 213)">-i</span><br></div></code></pre></div></div>
+<p>最后重启系统，并检查内核版本：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">uname</span><span class="token plain"> </span><span class="token parameter variable" style="color:rgb(191, 199, 213)">-rs</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="方法3修改-grub">方法3：修改 grub<a href="https://gnehsizum.github.io/blog/2023/01/09/legion-keyboard/#%E6%96%B9%E6%B3%953%E4%BF%AE%E6%94%B9-grub" class="hash-link" aria-label="方法3：修改 grub的直接链接" title="方法3：修改 grub的直接链接" translate="no">​</a></h2>
+<p>方法2对我无效，最终通过方法3解决问题。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">sudo</span><span class="token plain"> gedit /etc/default/grub</span><br></div></code></pre></div></div>
+<p>将文件中的 <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"</code> 修改为 <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i8042.dumbkbd"</code> 。</p>
+<p>保存关闭后：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">sudo</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">update-grub</span><br></div></code></pre></div></div>
+<p>最后重启系统，键盘就可以使用了。</p>]]></content>
+        <author>
+            <name>GnehSizum</name>
+            <uri>https://github.com/GnehSizum</uri>
+        </author>
+        <category label="Ubuntu" term="Ubuntu"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于我想在侧边栏打开 AppImage 这件事]]></title>
+        <id>https://gnehsizum.github.io/blog/2022/12/12/appimage-desktop/</id>
+        <link href="https://gnehsizum.github.io/blog/2022/12/12/appimage-desktop/"/>
+        <updated>2022-12-12T02:00:00.000Z</updated>
+        <summary type="html"><![CDATA[为 AppImage 配置执行权限和 Desktop 文件，将应用添加到 Ubuntu 启动器。]]></summary>
+        <content type="html"><![CDATA[<p>其实很简单，也写过很多遍了，但突然就想放到这里来充数:D</p>
+<p>以 groot2 为例。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-赋予-appimage-执行权限">1. 赋予 AppImage 执行权限<a href="https://gnehsizum.github.io/blog/2022/12/12/appimage-desktop/#1-%E8%B5%8B%E4%BA%88-appimage-%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90" class="hash-link" aria-label="1. 赋予 AppImage 执行权限的直接链接" title="1. 赋予 AppImage 执行权限的直接链接" translate="no">​</a></h2>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">chmod</span><span class="token plain"> +x groot2-x86_64.AppImage</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-创建-desktop-文件">2. 创建 Desktop 文件<a href="https://gnehsizum.github.io/blog/2022/12/12/appimage-desktop/#2-%E5%88%9B%E5%BB%BA-desktop-%E6%96%87%E4%BB%B6" class="hash-link" aria-label="2. 创建 Desktop 文件的直接链接" title="2. 创建 Desktop 文件的直接链接" translate="no">​</a></h2>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token builtin class-name" style="color:rgb(255, 203, 107)">cd</span><span class="token plain"> /usr/share/applications</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">sudo</span><span class="token plain"> gedit groot2.desktop</span><br></div></code></pre></div></div>
+<p>写入：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">[Desktop Entry]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Name=groot2</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Exec=/home/mumu/groot2-x86_64.AppImage</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Icon=/home/mumu/Pictures/icon/groot2.png</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Type=Application</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">StartupNotify=true</span><br></div></code></pre></div></div>
+<p>icon 没有的话可以不填，删去这一行。</p>
+<p>修改权限：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">sudo</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">chmod</span><span class="token plain"> a+x groot2.desktop</span><br></div></code></pre></div></div>
+<p>好了，完事儿。</p>]]></content>
+        <author>
+            <name>GnehSizum</name>
+            <uri>https://github.com/GnehSizum</uri>
+        </author>
+        <category label="Ubuntu" term="Ubuntu"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello World]]></title>
+        <id>https://gnehsizum.github.io/blog/1970/01/01/hello-world/</id>
+        <link href="https://gnehsizum.github.io/blog/1970/01/01/hello-world/"/>
+        <updated>1970-01-01T02:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The first post: a quick introduction to writing, previewing, and building a blog with Hexo.]]></summary>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer" class="">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener noreferrer" class="">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener noreferrer" class="">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener noreferrer" class="">GitHub</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quick-start">Quick Start<a href="https://gnehsizum.github.io/blog/1970/01/01/hello-world/#quick-start" class="hash-link" aria-label="Quick Start的直接链接" title="Quick Start的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-a-new-post">Create a new post<a href="https://gnehsizum.github.io/blog/1970/01/01/hello-world/#create-a-new-post" class="hash-link" aria-label="Create a new post的直接链接" title="Create a new post的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">$ hexo new </span><span class="token string" style="color:rgb(195, 232, 141)">"My New Post"</span><br></div></code></pre></div></div>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener noreferrer" class="">Writing</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="run-server">Run server<a href="https://gnehsizum.github.io/blog/1970/01/01/hello-world/#run-server" class="hash-link" aria-label="Run server的直接链接" title="Run server的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">$ hexo server</span><br></div></code></pre></div></div>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener noreferrer" class="">Server</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="generate-static-files">Generate static files<a href="https://gnehsizum.github.io/blog/1970/01/01/hello-world/#generate-static-files" class="hash-link" aria-label="Generate static files的直接链接" title="Generate static files的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">$ hexo generate</span><br></div></code></pre></div></div>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener noreferrer" class="">Generating</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="deploy-to-remote-sites">Deploy to remote sites<a href="https://gnehsizum.github.io/blog/1970/01/01/hello-world/#deploy-to-remote-sites" class="hash-link" aria-label="Deploy to remote sites的直接链接" title="Deploy to remote sites的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">$ hexo deploy</span><br></div></code></pre></div></div>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener noreferrer" class="">Deployment</a></p>]]></content>
+        <author>
+            <name>GnehSizum</name>
+            <uri>https://github.com/GnehSizum</uri>
+        </author>
+        <category label="Hexo" term="Hexo"/>
+    </entry>
+</feed>

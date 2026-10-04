@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmu_blog=self.webpackChunkmu_blog||[]).push([[657],{9550(e){e.exports=JSON.parse('{"metadata":{"permalink":"/en/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Everyday discoveries and technical adventures","blogTitle":"Blog"}}')}}]);
