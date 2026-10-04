@@ -83,12 +83,16 @@ fi
 source_commit="$(git rev-parse HEAD)"
 
 git -C "$deploy_dir" add --all
-if ! git -C "$deploy_dir" diff --cached --quiet; then
-  git -C "$deploy_dir" commit -m "Publish site from $source_commit"
-fi
-# 取回发布提交，一次性推送两个分支，并更新本地远端跟踪引用。
+# 即使构建产物未变，也创建新提交，使重试能够重新触发 Pages。
+git -C "$deploy_dir" commit --allow-empty -m "Publish site from $source_commit"
+# main 单独推送，让 Pages 收到明确的网站发布分支更新。
 deploy_commit="$(git -C "$deploy_dir" rev-parse HEAD)"
 git fetch --quiet "$deploy_dir" main
-printf '%s\n' '推送源码 source 和网站 main……'
-git push --atomic origin "$source_commit:refs/heads/source" "$deploy_commit:refs/heads/main"
-printf '%s\n' '两个分支已推送成功。等待 GitHub Pages 完成上线：https://gnehsizum.github.io/' '发布源应设置为 Deploy from a branch → main → /(root)。'
+printf '%s\n' '推送源码 source……'
+git push origin "$source_commit:refs/heads/source"
+printf '%s\n' '单独推送网站 main，触发 GitHub Pages……'
+if ! git push origin "$deploy_commit:refs/heads/main"; then
+  printf '%s\n' '源码已推送，但网站 main 推送失败。处理上方错误后可重新运行脚本；不会强制覆盖远端。' >&2
+  exit 1
+fi
+printf '%s\n' '源码和网站文件已推送，尚需等待 GitHub Pages 完成上线。' '部署状态：https://github.com/GnehSizum/GnehSizum.github.io/actions' '网站地址：https://gnehsizum.github.io/' '发布源应设置为 Deploy from a branch → main → /(root)。'
