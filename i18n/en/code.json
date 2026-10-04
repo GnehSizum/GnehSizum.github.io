@@ -1,0 +1,176 @@
+{
+  "home.title": {
+    "message": "Home"
+  },
+  "home.description": {
+    "message": "GnehSizum’s personal blog on robotics, SLAM, and everyday discoveries."
+  },
+  "home.blogButton": {
+    "message": "Explore the blog"
+  },
+  "home.aboutButton": {
+    "message": "Meet the person"
+  },
+  "home.explore": {
+    "message": "Every discovery leaves a trace."
+  },
+  "home.exploreDescription": {
+    "message": "Learning, making, and the moments in between."
+  },
+  "home.notesTitle": {
+    "message": "Notes"
+  },
+  "home.notesDescription": {
+    "message": "Making sense of complex ideas, one learning note at a time."
+  },
+  "home.blogTitle": {
+    "message": "Blog"
+  },
+  "home.blogDescription": {
+    "message": "Discoveries in tech, with a little inspiration from everyday life."
+  },
+  "home.aboutTitle": {
+    "message": "About"
+  },
+  "home.aboutDescription": {
+    "message": "Beyond the code: friends, passions, and little moments of life."
+  },
+  "about.title": {
+    "message": "About me"
+  },
+  "about.friends": {
+    "message": "Friends"
+  },
+  "about.moments": {
+    "message": "Moments"
+  },
+  "about.photoPreview": {
+    "message": "Photo preview"
+  },
+  "about.closePhoto": {
+    "message": "Close photo"
+  },
+  "about.intro": {
+    "message": "Still finding the words for this introduction."
+  },
+  "about.skills": {
+    "message": "Skills"
+  },
+  "about.contact": {
+    "message": "Contact"
+  },
+  "about.quoteAuthor": {
+    "message": "— Lu Xun"
+  },
+  "about.quote.1": {
+    "message": "One says, the future is better than the present."
+  },
+  "about.quote.2": {
+    "message": "One says, the present falls far short of the past."
+  },
+  "about.quote.3": {
+    "message": "One says, what?"
+  },
+  "about.quote.4": {
+    "message": "Time says, you all insult my present."
+  },
+  "about.quote.5": {
+    "message": "If the past was better, go back yourself."
+  },
+  "about.quote.6": {
+    "message": "If the future is better, come along with me."
+  },
+  "about.quote.7": {
+    "message": "As for the one who asks “what”,"
+  },
+  "about.quote.8": {
+    "message": "I have nothing to say to you."
+  },
+  "about.places": {
+    "message": "Places worth exploring"
+  },
+  "about.people": {
+    "message": "People worth knowing"
+  },
+  "about.visitFriend": {
+    "message": "Visit {name}’s website (opens in a new tab)"
+  },
+  "about.friend.Yeither": {
+    "message": "Yeither, what should I write about you?"
+  },
+  "about.photoCount": {
+    "message": "{count} photos"
+  },
+  "about.enlargePhoto": {
+    "message": "Enlarge photo: {caption}"
+  },
+  "blog.tags": {
+    "message": "Post tags"
+  },
+  "blog.readPost": {
+    "message": "Read post: {title}"
+  },
+  "blog.readMore": {
+    "message": "Read more"
+  },
+  "home.blogCta": {
+    "message": "Find your next read"
+  },
+  "home.notesCta": {
+    "message": "Learn something new"
+  },
+  "home.aboutCta": {
+    "message": "Nice to meet you"
+  },
+  "notes.title": {
+    "message": "Notes"
+  },
+  "notes.intro": {
+    "message": "Making sense of ideas, one note at a time."
+  },
+  "notes.slamTitle": {
+    "message": "Fourteen Lectures on Visual SLAM"
+  },
+  "notes.chapterCount": {
+    "message": "2 notes"
+  },
+  "notes.slamDescription": {
+    "message": "Starting with motion in space, exploring how robots see the world."
+  },
+  "notes.chapter3": {
+    "message": "Rigid Body Motion in 3D"
+  },
+  "notes.chapter3Description": {
+    "message": "Rotation matrices, quaternions, and coordinate transforms — from geometry to mathematics."
+  },
+  "notes.chapter4": {
+    "message": "Lie Groups and Lie Algebras"
+  },
+  "notes.chapter4Description": {
+    "message": "Another language for rotation and pose, connecting Lie groups with their algebras."
+  },
+  "notes.footnote": {
+    "message": "Building a personal map of knowledge, little by little. Notes are in their original language."
+  },
+  "notFound.heading": {
+    "message": "A little off the map."
+  },
+  "notFound.description": {
+    "message": "The address may be wrong, or the page has moved."
+  },
+  "notFound.home": {
+    "message": "Back to home"
+  },
+  "notFound.blog": {
+    "message": "Explore the blog"
+  },
+  "notFound.hint": {
+    "message": "Let’s find our way back."
+  },
+  "notFound.cat": {
+    "message": "Wake up the sleeping cat"
+  },
+  "notFound.catAwake": {
+    "message": "The cat is awake and a little grumpy"
+  }
+}

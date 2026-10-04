@@ -1,0 +1,14 @@
+{
+  "item.label.首页": {
+    "message": "Home"
+  },
+  "item.label.博客": {
+    "message": "Blog"
+  },
+  "item.label.笔记": {
+    "message": "Notes"
+  },
+  "item.label.关于": {
+    "message": "About"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": {
+    "message": "Blog"
+  },
+  "description": {
+    "message": "Everyday discoveries and technical adventures"
+  },
+  "sidebar.title": {
+    "message": "All posts"
+  }
+}

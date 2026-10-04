@@ -1,0 +1,82 @@
+[
+  {
+    "from": "/1970/01/01/blog/19700101_hello_world/",
+    "to": "/blog/1970/01/01/hello-world/"
+  },
+  {
+    "from": "/2022/12/12/blog/20221212_appimage_desktop/",
+    "to": "/blog/2022/12/12/appimage-desktop/"
+  },
+  {
+    "from": "/2023/01/09/blog/20230109_legion_keyboard/",
+    "to": "/blog/2023/01/09/legion-keyboard/"
+  },
+  {
+    "from": "/2023/02/04/blog/20230204_qv2ray_install/",
+    "to": "/blog/2023/02/04/qv2ray-install/"
+  },
+  {
+    "from": "/2026/01/02/note/vslam14/vslam_03/",
+    "to": "/note/vslam14/vslam_03/"
+  },
+  {
+    "from": "/2026/04/05/note/vslam14/vslam_04/",
+    "to": "/note/vslam14/vslam_04/"
+  },
+  {
+    "from": "/tags/Ubuntu/",
+    "to": "/blog/tags/ubuntu/"
+  },
+  {
+    "from": "/tags/Hexo/",
+    "to": "/blog/tags/hexo/"
+  },
+  {
+    "from": "/tags/SLAM/",
+    "to": "/note/tags/slam/"
+  },
+  {
+    "from": "/archives/1970/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2022/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2023/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2026/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/1970/01/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2022/12/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2023/01/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2023/02/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2026/01/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/2026/04/",
+    "to": "/blog/archive/"
+  },
+  {
+    "from": "/archives/",
+    "to": "/blog/archive/"
+  }
+]
