@@ -52,7 +52,7 @@ export default {
       ],
     },
     colorMode: {respectPrefersColorScheme: true},
-    footer: {style: 'dark', copyright: `Copyright © ${new Date().getFullYear()} GnehSizum. All rights reserved.`},
+    footer: {style: 'dark', copyright: `Copyright © ${new Date().getFullYear()} GnehSizum. All rights reserved.<br />Built with <a class="footer__link" href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">Docusaurus</a> · Hosted on <a class="footer__link" href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> · Images stored on <a class="footer__link" href="https://www.aliyun.com/product/oss" target="_blank" rel="noopener noreferrer">Alibaba Cloud OSS</a>`},
     prism: {additionalLanguages: ['bash', 'cpp', 'cmake', 'python']},
     tableOfContents: {minHeadingLevel: 2, maxHeadingLevel: 4},
   },

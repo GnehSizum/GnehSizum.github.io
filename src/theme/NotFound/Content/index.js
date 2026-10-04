@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import CharacterBackground from '@site/src/components/CharacterBackground';
+import PixelCat from '@site/src/components/PixelCat';
 
 export default function NotFoundContent({className}) {
   const [greeting, setGreeting] = useState(false);
@@ -36,19 +37,7 @@ export default function NotFoundContent({className}) {
               onFocus={() => setGreeting(true)}
               onBlur={() => setGreeting(false)}
               onClick={wakeCat}>
-              <svg viewBox="0 0 36 28" fill="currentColor" shapeRendering="crispEdges" aria-hidden="true">
-                <g className="not-found-cat-legs">
-                  {[6, 12, 22, 28].map(x => <rect key={x} x={x} y="17" width="3" height="9" />)}
-                </g>
-                <g className="not-found-cat-body">
-                  <path d="M13 9h12v1h3v2h2v7H13Z" />
-                  <path d="M27 15h6v4h-6Z" />
-                  {[[30, 16], [31, 14], [32, 12], [32, 10], [31, 8], [30, 6], [30, 4]].map(([x, y], index) => (
-                    <rect key={y} className="not-found-cat-tail" x={x} y={y} width="3" height="3" style={{'--tail-delay': `${index * 70}ms`}} />
-                  ))}
-                </g>
-                <path className="not-found-cat-head" fillRule="evenodd" d={`M3 3h2v2h2v2h5V5h2V3h2v6h1v7h-2v2H4v-2H2V9h1Z ${awake ? 'M5 10h1v1h1v1h1v1H5Z M11 12h1v-1h1v-1h1v3h-3Z' : 'M5 11h3v1H5Z M11 11h3v1h-3Z'}`} />
-              </svg>
+              <PixelCat awake={awake} angry classPrefix="not-found-cat" />
             </button>
             <span className="not-found-digit" aria-hidden="true">0</span>
           </span>

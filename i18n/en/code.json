@@ -172,5 +172,11 @@
   },
   "notFound.catAwake": {
     "message": "The cat is awake and a little grumpy"
+  },
+  "footer.catSleep": {
+    "message": "Click to take the sleeping cat for a little walk"
+  },
+  "footer.catRunning": {
+    "message": "The cat is taking a walk and will sleep again after 5 seconds"
   }
 }

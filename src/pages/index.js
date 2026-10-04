@@ -49,7 +49,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3>{translate({id: 'home.notesTitle', message: '笔记'})}</h3>
-              <p>{translate({id: 'home.notesDescription', message: '把复杂的知识慢慢理清，让每一次学习都有迹可循。'})}</p>
+              <p>{translate({id: 'home.notesDescription', message: '把复杂的知识慢慢理清，让认真的思考留下痕迹。'})}</p>
               <span className="home-portal-cta">{translate({id: 'home.notesCta', message: '一起学点什么'})}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
             </Link>
             <Link className="home-portal home-portal--about" to="/about/">
@@ -62,7 +62,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3>{translate({id: 'home.aboutTitle', message: '关于'})}</h3>
-              <p>{translate({id: 'home.aboutDescription', message: '代码之外，还有朋友、热爱，和一些生活片段。'})}</p>
+              <p>{translate({id: 'home.aboutDescription', message: '技术之外，还有朋友、喜爱，和一些生活片段。'})}</p>
               <span className="home-portal-cta">{translate({id: 'home.aboutCta', message: '很高兴认识你'})}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
             </Link>
           </div>
