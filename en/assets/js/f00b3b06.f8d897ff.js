@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmu_blog=self.webpackChunkmu_blog||[]).push([[810],{2749(e){e.exports=JSON.parse('{"authors":[{"name":"GnehSizum","title":"_(:\u0437\u300d\u2220)_","url":"https://github.com/GnehSizum","imageURL":"/en/images/head.jpg","key":"gnehsizum","page":null,"count":4}]}')}}]);

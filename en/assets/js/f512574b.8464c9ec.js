@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmu_blog=self.webpackChunkmu_blog||[]).push([[191],{7502(e){e.exports=JSON.parse('{"tags":[{"label":"Ubuntu","permalink":"/en/blog/tags/ubuntu","count":3},{"label":"Hexo","permalink":"/en/blog/tags/hexo","count":1}]}')}}]);
