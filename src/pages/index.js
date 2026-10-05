@@ -6,7 +6,7 @@ import CharacterBackground from '../components/CharacterBackground';
 
 export default function Home() {
   return (
-    <Layout title={translate({id: "home.title", message: "首页"})} description={translate({id: "home.description", message: "GnehSizum 的个人博客，记录机器人技术、SLAM 学习与日常实践。"})}>
+    <Layout title={translate({id: "home.title", message: "首页"})} description={translate({id: "home.description", message: "GnehSizum 的个人博客，包含技术文章、学习笔记和日常记录。"})}>
       <main className="container home-main">
         <header className="home-hero">
           <CharacterBackground />
@@ -22,11 +22,7 @@ export default function Home() {
             </Link>
           </div>
         </header>
-        <section aria-labelledby="explore-heading">
-          <div className="home-section-heading">
-            <h2 id="explore-heading">{translate({id: "home.explore", message: "每一次探索，都有迹可循。"})}</h2>
-            <p>{translate({id: "home.exploreDescription", message: "学习、实践，以及生活里的片刻。"})}</p>
-          </div>
+        <section aria-label={translate({id: 'home.navigation', message: '网站内容'})}>
           <div className="home-portals">
             <Link className="home-portal home-portal--blog" to="/blog/">
               <div className="home-portal-top">
@@ -37,8 +33,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3>{translate({id: 'home.blogTitle', message: '博客'})}</h3>
-              <p>{translate({id: 'home.blogDescription', message: '记录技术里的新发现，也收藏日常里的小灵感。'})}</p>
-              <span className="home-portal-cta">{translate({id: 'home.blogCta', message: '翻开一篇文章'})}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
+              <p>{translate({id: 'home.blogDescription', message: '一些技术实践'})}</p>
+              <span className="home-portal-cta">{translate({id: 'home.blogCta', message: '浏览一篇博客'})}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
             </Link>
             <Link className="home-portal home-portal--notes" to="/note/">
               <div className="home-portal-top">
@@ -49,7 +45,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3>{translate({id: 'home.notesTitle', message: '笔记'})}</h3>
-              <p>{translate({id: 'home.notesDescription', message: '把复杂的知识慢慢理清，让认真的思考留下痕迹。'})}</p>
+              <p>{translate({id: 'home.notesDescription', message: '一些学习笔记'})}</p>
               <span className="home-portal-cta">{translate({id: 'home.notesCta', message: '一起学点什么'})}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
             </Link>
             <Link className="home-portal home-portal--about" to="/about/">
@@ -62,7 +58,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3>{translate({id: 'home.aboutTitle', message: '关于'})}</h3>
-              <p>{translate({id: 'home.aboutDescription', message: '技术之外，还有朋友、喜爱，和一些生活片段。'})}</p>
+              <p>{translate({id: 'home.aboutDescription', message: '我、朋友们和一些生活片段'})}</p>
               <span className="home-portal-cta">{translate({id: 'home.aboutCta', message: '很高兴认识你'})}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
             </Link>
           </div>

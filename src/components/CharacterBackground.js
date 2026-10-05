@@ -40,7 +40,7 @@ export default function CharacterBackground() {
         const center = Math.exp(-(((cell.x - width / 2) / (width * .27)) ** 2 + ((cell.y - height * .5) / (height * .6)) ** 2));
         const quiet = 1 - center * .82;
         context.globalAlpha = Math.max(0, edge) * quiet * ((dark ? .22 : .16) + influence * .55);
-        context.fillStyle = cell.seed % 2 ? (dark ? '#b7a0f6' : '#7854bc') : (dark ? '#8aaff4' : '#4c73c7');
+        context.fillStyle = cell.seed % 2 ? (dark ? '#abb5ef' : '#626bb8') : (dark ? '#8aaff4' : '#4c73c7');
         const index = influence > .25 ? (cell.seed + Math.floor(time / 160)) % characters.length : cell.seed % characters.length;
         const push = influence * 10 + wave * 5;
         context.fillText(characters[index], cell.x + dx / (distance || 1) * push, cell.y + dy / (distance || 1) * push);

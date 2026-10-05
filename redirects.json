@@ -29,7 +29,7 @@
   },
   {
     "from": "/tags/Hexo/",
-    "to": "/blog/tags/hexo/"
+    "to": "/blog/tags/"
   },
   {
     "from": "/tags/SLAM/",

@@ -9,7 +9,6 @@ export default function NotesOverview() {
         <div>
           <p className="notes-eyebrow">THE NOTEBOOK</p>
           <h1>{translate({id: 'notes.title', message: '笔记'})}</h1>
-          <p className="notes-overview-intro">{translate({id: 'notes.intro', message: '把知识慢慢理清，把思考认真留下。'})}</p>
         </div>
         <svg className="notes-orbit" width="140" height="140" viewBox="0 0 140 140" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
           <circle cx="70" cy="70" r="46" opacity=".2" />
@@ -25,21 +24,20 @@ export default function NotesOverview() {
           <div><p className="notes-eyebrow">ROBOTICS / SLAM</p><h2 id="notes-slam-title">{translate({id: 'notes.slamTitle', message: '视觉 SLAM 十四讲'})}</h2></div>
           <span className="notes-topic-count">{translate({id: 'notes.chapterCount', message: '2 篇笔记'})}</span>
         </div>
-        <p className="notes-topic-description">{translate({id: 'notes.slamDescription', message: '从空间运动出发，一步步理解机器人眼中的世界。'})}</p>
+        <p className="notes-topic-description">{translate({id: 'notes.slamDescription', message: '《视觉 SLAM 十四讲》的章节笔记。'})}</p>
         <div className="notes-chapters">
           <Link className="notes-chapter" to="/note/vslam14/vslam_03/">
             <span className="notes-chapter-number" aria-hidden="true">03</span>
-            <div className="notes-chapter-copy"><h3>{translate({id: 'notes.chapter3', message: '三维空间刚体运动'})}</h3><p>{translate({id: 'notes.chapter3Description', message: '旋转矩阵、四元数与坐标变换，从几何直觉走向数学表达。'})}</p><span className="notes-chapter-topics">ROTATION · QUATERNION · TRANSFORM</span></div>
+            <div className="notes-chapter-copy"><h3>{translate({id: 'notes.chapter3', message: '三维空间刚体运动'})}</h3><p>{translate({id: 'notes.chapter3Description', message: '旋转矩阵、四元数与坐标变换。'})}</p><span className="notes-chapter-topics">ROTATION · QUATERNION · TRANSFORM</span></div>
             <svg className="notes-chapter-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
           </Link>
           <Link className="notes-chapter" to="/note/vslam14/vslam_04/">
             <span className="notes-chapter-number" aria-hidden="true">04</span>
-            <div className="notes-chapter-copy"><h3>{translate({id: 'notes.chapter4', message: '李群与李代数'})}</h3><p>{translate({id: 'notes.chapter4Description', message: '理解旋转与位姿的另一种语言，梳理李群、李代数和它们的联系。'})}</p><span className="notes-chapter-topics">LIE GROUP · LIE ALGEBRA</span></div>
+            <div className="notes-chapter-copy"><h3>{translate({id: 'notes.chapter4', message: '李群与李代数'})}</h3><p>{translate({id: 'notes.chapter4Description', message: '李群、李代数及其联系。'})}</p><span className="notes-chapter-topics">LIE GROUP · LIE ALGEBRA</span></div>
             <svg className="notes-chapter-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
           </Link>
         </div>
       </section>
-      <p className="notes-overview-footnote">{translate({id: 'notes.footnote', message: '一点一滴，积累成自己的知识地图。'})}</p>
     </div>
   );
 }

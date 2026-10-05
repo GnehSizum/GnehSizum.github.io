@@ -1,39 +1,36 @@
 {
+  "home.navigation": {
+    "message": "Site sections"
+  },
   "home.title": {
     "message": "Home"
   },
   "home.description": {
-    "message": "GnehSizum’s personal blog on robotics, SLAM, and everyday discoveries."
+    "message": "GnehSizum’s personal blog with technical articles, learning notes, and everyday updates."
   },
   "home.blogButton": {
-    "message": "Explore the blog"
+    "message": "Browse the blog"
   },
   "home.aboutButton": {
-    "message": "Meet the person"
-  },
-  "home.explore": {
-    "message": "Every discovery leaves a trace."
-  },
-  "home.exploreDescription": {
-    "message": "Learning, making, and the moments in between."
+    "message": "About me"
   },
   "home.notesTitle": {
     "message": "Notes"
   },
   "home.notesDescription": {
-    "message": "Making sense of complex ideas, one learning note at a time."
+    "message": "Notes on robotics and SLAM."
   },
   "home.blogTitle": {
     "message": "Blog"
   },
   "home.blogDescription": {
-    "message": "Discoveries in tech, with a little inspiration from everyday life."
+    "message": "Technical projects and everyday updates."
   },
   "home.aboutTitle": {
     "message": "About"
   },
   "home.aboutDescription": {
-    "message": "Beyond the code: friends, passions, and little moments of life."
+    "message": "About me, friends, and photos."
   },
   "about.title": {
     "message": "About me"
@@ -114,19 +111,19 @@
     "message": "Read more"
   },
   "home.blogCta": {
-    "message": "Find your next read"
+    "message": "View posts"
   },
   "home.notesCta": {
-    "message": "Learn something new"
+    "message": "View notes"
   },
   "home.aboutCta": {
-    "message": "Nice to meet you"
+    "message": "About me"
   },
   "notes.title": {
     "message": "Notes"
   },
   "notes.intro": {
-    "message": "Making sense of ideas, one note at a time."
+    "message": "Notes on robotics and SLAM."
   },
   "notes.slamTitle": {
     "message": "Fourteen Lectures on Visual SLAM"
@@ -135,22 +132,19 @@
     "message": "2 notes"
   },
   "notes.slamDescription": {
-    "message": "Starting with motion in space, exploring how robots see the world."
+    "message": "Chapter notes from Fourteen Lectures on Visual SLAM."
   },
   "notes.chapter3": {
     "message": "Rigid Body Motion in 3D"
   },
   "notes.chapter3Description": {
-    "message": "Rotation matrices, quaternions, and coordinate transforms — from geometry to mathematics."
+    "message": "Rotation matrices, quaternions, and coordinate transforms."
   },
   "notes.chapter4": {
     "message": "Lie Groups and Lie Algebras"
   },
   "notes.chapter4Description": {
-    "message": "Another language for rotation and pose, connecting Lie groups with their algebras."
-  },
-  "notes.footnote": {
-    "message": "Building a personal map of knowledge, little by little. Notes are in their original language."
+    "message": "Lie groups, Lie algebras, and their relationship."
   },
   "notFound.heading": {
     "message": "A little off the map."
